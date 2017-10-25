@@ -12,12 +12,10 @@ class ViewController: UIViewController {
     
     @IBOutlet var label: UILabel!
     let purchaseHandler = IAPPurchaseHandler()
-    let validator = Validator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         purchaseHandler.fetchAvailableProducts()
-        validator.startValidatingReceipts(completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
