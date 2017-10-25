@@ -60,6 +60,7 @@
 		EC2465391F9FBC3C0065BD8C /* IAPTester */ = {
 			isa = PBXGroup;
 			children = (
+				EC24656E1FA104470065BD8C /* Models */,
 				EC24653A1F9FBC3C0065BD8C /* AppDelegate.swift */,
 				EC24653C1F9FBC3C0065BD8C /* ViewController.swift */,
 				EC24653E1F9FBC3C0065BD8C /* Main.storyboard */,
@@ -71,6 +72,13 @@
 				EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */,
 			);
 			path = IAPTester;
+			sourceTree = "<group>";
+		};
+		EC24656E1FA104470065BD8C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

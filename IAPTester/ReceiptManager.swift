@@ -15,7 +15,15 @@ import StoreKit
     let IS_DEBUG = false
 #endif
 
-class ReceiptManager: NSObject, SKRequestDelegate {
+protocol ReceiptSomething {
+    var appSecret: String {get}
+}
+
+final class ReceiptManager: NSObject, ReceiptSomething {
+    
+    var appSecret: String = APP_SECRET
+    
+    static let sharedInstance = ReceiptManager()
     
     var receiptValidationUrl: URL? {
         if IS_DEBUG {
@@ -25,11 +33,11 @@ class ReceiptManager: NSObject, SKRequestDelegate {
         }
     }
     
-    override init() {
+    private override init() {
         super.init()
     }
 
-    func startValidatingReceipts() {
+    func startValidatingReceipts(completion: (()->Void)?) {
         if let isExist = try? getReceiptUrl()?.checkResourceIsReachable(), isExist == true {
             do {
                 let data = try Data(contentsOf: getReceiptUrl()!)
@@ -52,7 +60,7 @@ class ReceiptManager: NSObject, SKRequestDelegate {
         guard let receiptValidUrl = receiptValidationUrl else {return} //TODO: error handling
         let encodedData = data.base64EncodedString(options: Data.Base64EncodingOptions.init(rawValue: 0))
         var dic: [String: AnyObject] = ["receipt-data": encodedData as AnyObject]
-        dic["password"] = APP_SECRET as AnyObject
+        dic["password"] = appSecret as AnyObject
         
         let json = try! JSONSerialization.data(withJSONObject: dic, options: [])
         
@@ -93,7 +101,11 @@ class ReceiptManager: NSObject, SKRequestDelegate {
         }
     }
     
+    
+}
+
+extension ReceiptManager: SKRequestDelegate {
     func requestDidFinish(_ request: SKRequest) {
-        startValidatingReceipts()
+        startValidatingReceipts(completion: nil)
     }
 }

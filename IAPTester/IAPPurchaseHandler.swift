@@ -36,6 +36,7 @@ class IAPPurchaseHandler: NSObject {
             return}
         
         let product = iapProducts[0]
+        product.productIdentifier
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().add(payment)
@@ -78,8 +79,5 @@ extension IAPPurchaseHandler: SKPaymentTransactionObserver {
     
     func handlePurchasedState(for transaction: SKPaymentTransaction, inQueue queue: SKPaymentQueue) {
         queue.finishTransaction(transaction)
-        
     }
-    
-    
 }

@@ -12,12 +12,12 @@ class ViewController: UIViewController {
     
     @IBOutlet var label: UILabel!
     let purchaseHandler = IAPPurchaseHandler()
-    let receiptManager = ReceiptManager()
+    let receiptManager = ReceiptManager.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
         purchaseHandler.fetchAvailableProducts()
-        receiptManager.startValidatingReceipts()
+        receiptManager.startValidatingReceipts(completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +27,10 @@ class ViewController: UIViewController {
 
     @IBAction func purchaseTapped(_ sender: Any) {
         purchaseHandler.purchaseProduct()
+    }
+    @IBAction func purchaseNonConsTapped(_ sender: Any) {
+    }
+    @IBAction func purchaseSubTapped(_ sender: Any) {
     }
     
 }
