@@ -36,7 +36,6 @@ class IAPPurchaseHandler: NSObject {
             return}
         
         let product = iapProducts[0]
-        product.productIdentifier
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().add(payment)

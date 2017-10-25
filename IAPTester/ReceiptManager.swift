@@ -15,17 +15,15 @@ import StoreKit
     let IS_DEBUG = false
 #endif
 
-protocol ReceiptSomething {
+protocol ReceiptManager: SKRequestDelegate {
+    
     var appSecret: String {get}
+    
+    func startValidatingReceipts(completion: (()->Void)?)
 }
 
-final class ReceiptManager: NSObject, ReceiptSomething {
-    
-    var appSecret: String = APP_SECRET
-    
-    static let sharedInstance = ReceiptManager()
-    
-    var receiptValidationUrl: URL? {
+extension ReceiptManager {
+    private var receiptValidationUrl: URL? {
         if IS_DEBUG {
             return URL(string: "https://sandbox.itunes.apple.com/verifyReceipt")
         } else {
@@ -33,14 +31,14 @@ final class ReceiptManager: NSObject, ReceiptSomething {
         }
     }
     
-    private override init() {
-        super.init()
+    private var localReceiptUrl: URL? {
+        return Bundle.main.appStoreReceiptURL
     }
-
+    
     func startValidatingReceipts(completion: (()->Void)?) {
-        if let isExist = try? getReceiptUrl()?.checkResourceIsReachable(), isExist == true {
+        if let isExist = try? localReceiptUrl?.checkResourceIsReachable(), isExist == true {
             do {
-                let data = try Data(contentsOf: getReceiptUrl()!)
+                let data = try Data(contentsOf: localReceiptUrl!)
                 validate(data: data)
             } catch {
                 
@@ -52,8 +50,23 @@ final class ReceiptManager: NSObject, ReceiptSomething {
         }
     }
     
-    private func getReceiptUrl() -> URL? {
-        return Bundle.main.appStoreReceiptURL
+    private func parse(data: Data) {
+        let json = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
+        
+        guard let status = json["status"] as? NSNumber else {return}
+        if status == 0 {
+            let receipt = json["receipt"] as! NSDictionary
+            print("Receipt: \(receipt)")
+            
+            let purchases = receipt["in_app"] as! [NSDictionary]
+            
+            for _ in purchases {
+                print("PURCHASE FOUND")
+            }
+            
+        } else {
+            print("error validating receipts")
+        }
     }
     
     private func validate(data: Data) {
@@ -74,37 +87,9 @@ final class ReceiptManager: NSObject, ReceiptSomething {
             } else {
                 print("Error retrieving receipt data from itunes connect")
             }
-        }.resume()
-        
+            }.resume()
     }
     
-    private func parse(data: Data) {
-        let json = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-        
-        guard let status = json["status"] as? NSNumber else {return}
-        if status == 0 {
-            let receipt = json["receipt"] as! NSDictionary
-            print("Receipt: \(receipt)")
-            
-            let purchases = receipt["in-app"] as! [NSDictionary]
-            
-            for purchase in purchases {
-                let expiryDate = purchase["expiry_date_ms"]
-                let productId = purchase["product_id"]
-                let transactionId = purchase["transaction_id"]
-                let isTrial = purchase["is_trial_period"]
-                let purchaseDate = purchase["original_purchase_date"]
-            }
-            
-        } else {
-            print("error validating receipts")
-        }
-    }
-    
-    
-}
-
-extension ReceiptManager: SKRequestDelegate {
     func requestDidFinish(_ request: SKRequest) {
         startValidatingReceipts(completion: nil)
     }
