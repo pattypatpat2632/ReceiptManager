@@ -35,6 +35,23 @@ class IAPTesterTests: XCTestCase {
                         "request_date_ms" : "1509732278403",
                         "request_date_pst" : "2017-11-03 11:04:38 America/Los_Angeles",
                         "version_external_identifier" : "0"
+                    ],
+                    [
+                        "expires_date" : "2017-11-06 16:18:08 Etc/GMT",
+                        "expires_date_ms" : "1509985088000",
+                        "expires_date_pst" : "2017-11-06 08:18:08 America/Los_Angeles",
+                        "is_trial_period" : true,
+                        "original_purchase_date" : "2017-11-06 16:15:09 Etc/GMT",
+                        "original_purchase_date_ms" : "1509984909000",
+                        "original_purchase_date_pst" : "2017-11-06 08:15:09 America/Los_Angeles",
+                        "original_transaction_id" : "1000000350033379",
+                        "product_id" : "AutoRenewSubsc",
+                        "purchase_date" : "2017-11-06 16:15:08 Etc/GMT",
+                        "purchase_date_ms" : "1509984908000",
+                        "purchase_date_pst" : "2017-11-06 08:15:08 America/Los_Angeles",
+                        "quantity" : "1",
+                        "transaction_id" : "1000000350033379",
+                        "web_order_line_item_id" : "1000000036803204",
                     ]
                 ]
             ],
