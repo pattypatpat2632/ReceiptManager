@@ -54,8 +54,8 @@ extension ReceiptManager {
     
     private func parse(data: Data) {
         let json = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-        
-
+        print(json)
+/*
         
         guard let status = json["status"] as? NSNumber else {return}
         if status == 0 {
@@ -70,7 +70,7 @@ extension ReceiptManager {
             
         } else {
             print("error validating receipts")
-        } 
+        } */
     }
     
     private func validate(data: Data) {

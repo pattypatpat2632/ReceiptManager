@@ -22,7 +22,7 @@ class IAPPurchaseHandler: NSObject {
     func fetchAvailableProducts(){
         if canMakePurchases() {print("Purchases allowed")}
         print("FETCHING PRODUCTS")
-        let productIdentifiers: Set = [consumableID, "AutoRenewSubsc"]
+        let productIdentifiers: Set = [consumableID, "AutoRenewSubsc", "NonCons"]
         
         productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
         productsRequest.delegate = self
@@ -53,6 +53,20 @@ class IAPPurchaseHandler: NSObject {
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().add(payment)
         currentProduct = product
+    }
+    
+    func purchaseNonCons() {
+        guard canMakePurchases() else {return}
+        guard iapProducts.count > 0 else {
+            return
+        }
+        
+        let product = iapProducts[2]
+        let payment = SKPayment(product: product)
+        SKPaymentQueue.default().add(self)
+        SKPaymentQueue.default().add(payment)
+        currentProduct = product
+    
     }
 }
 

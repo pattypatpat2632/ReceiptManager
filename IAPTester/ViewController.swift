@@ -30,6 +30,7 @@ class ViewController: UIViewController, ReceiptManager {
         purchaseHandler.purchaseProduct()
     }
     @IBAction func purchaseNonConsTapped(_ sender: Any) {
+        purchaseHandler.purchaseNonCons()
     }
     @IBAction func purchaseSubTapped(_ sender: Any) {
         purchaseHandler.purchaseSubscription()
