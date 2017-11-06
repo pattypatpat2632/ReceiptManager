@@ -1,0 +1,230 @@
+{
+"latest_receipt_info" =     (
+                             {
+                             "expires_date" = "2017-11-06 16:18:08 Etc/GMT";
+                             "expires_date_ms" = 1509985088000;
+                             "expires_date_pst" = "2017-11-06 08:18:08 America/Los_Angeles";
+                             "is_trial_period" = true;
+                             "original_purchase_date" = "2017-11-06 16:15:09 Etc/GMT";
+                             "original_purchase_date_ms" = 1509984909000;
+                             "original_purchase_date_pst" = "2017-11-06 08:15:09 America/Los_Angeles";
+                             "original_transaction_id" = 1000000350033379;
+                             "product_id" = AutoRenewSubsc;
+                             "purchase_date" = "2017-11-06 16:15:08 Etc/GMT";
+                             "purchase_date_ms" = 1509984908000;
+                             "purchase_date_pst" = "2017-11-06 08:15:08 America/Los_Angeles";
+                             quantity = 1;
+                             "transaction_id" = 1000000350033379;
+                             "web_order_line_item_id" = 1000000036803204;
+                             },
+                             {
+                             "expires_date" = "2017-11-06 16:23:08 Etc/GMT";
+                             "expires_date_ms" = 1509985388000;
+                             "expires_date_pst" = "2017-11-06 08:23:08 America/Los_Angeles";
+                             "is_trial_period" = false;
+                             "original_purchase_date" = "2017-11-06 16:15:09 Etc/GMT";
+                             "original_purchase_date_ms" = 1509984909000;
+                             "original_purchase_date_pst" = "2017-11-06 08:15:09 America/Los_Angeles";
+                             "original_transaction_id" = 1000000350033379;
+                             "product_id" = AutoRenewSubsc;
+                             "purchase_date" = "2017-11-06 16:18:08 Etc/GMT";
+                             "purchase_date_ms" = 1509985088000;
+                             "purchase_date_pst" = "2017-11-06 08:18:08 America/Los_Angeles";
+                             quantity = 1;
+                             "transaction_id" = 1000000350033483;
+                             "web_order_line_item_id" = 1000000036803205;
+                             },
+                             {
+                             "expires_date" = "2017-11-06 16:28:30 Etc/GMT";
+                             "expires_date_ms" = 1509985710000;
+                             "expires_date_pst" = "2017-11-06 08:28:30 America/Los_Angeles";
+                             "is_trial_period" = false;
+                             "original_purchase_date" = "2017-11-06 16:15:09 Etc/GMT";
+                             "original_purchase_date_ms" = 1509984909000;
+                             "original_purchase_date_pst" = "2017-11-06 08:15:09 America/Los_Angeles";
+                             "original_transaction_id" = 1000000350033379;
+                             "product_id" = AutoRenewSubsc;
+                             "purchase_date" = "2017-11-06 16:23:30 Etc/GMT";
+                             "purchase_date_ms" = 1509985410000;
+                             "purchase_date_pst" = "2017-11-06 08:23:30 America/Los_Angeles";
+                             quantity = 1;
+                             "transaction_id" = 1000000350034665;
+                             "web_order_line_item_id" = 1000000036803213;
+                             },
+                             {
+                             "expires_date" = "2017-11-06 16:34:58 Etc/GMT";
+                             "expires_date_ms" = 1509986098000;
+                             "expires_date_pst" = "2017-11-06 08:34:58 America/Los_Angeles";
+                             "is_trial_period" = false;
+                             "original_purchase_date" = "2017-11-06 16:15:09 Etc/GMT";
+                             "original_purchase_date_ms" = 1509984909000;
+                             "original_purchase_date_pst" = "2017-11-06 08:15:09 America/Los_Angeles";
+                             "original_transaction_id" = 1000000350033379;
+                             "product_id" = AutoRenewSubsc;
+                             "purchase_date" = "2017-11-06 16:29:58 Etc/GMT";
+                             "purchase_date_ms" = 1509985798000;
+                             "purchase_date_pst" = "2017-11-06 08:29:58 America/Los_Angeles";
+                             quantity = 1;
+                             "transaction_id" = 1000000350035435;
+                             "web_order_line_item_id" = 1000000036803279;
+                             },
+                             {
+                             "expires_date" = "2017-11-06 16:42:15 Etc/GMT";
+                             "expires_date_ms" = 1509986535000;
+                             "expires_date_pst" = "2017-11-06 08:42:15 America/Los_Angeles";
+                             "is_trial_period" = false;
+                             "original_purchase_date" = "2017-11-06 16:15:09 Etc/GMT";
+                             "original_purchase_date_ms" = 1509984909000;
+                             "original_purchase_date_pst" = "2017-11-06 08:15:09 America/Los_Angeles";
+                             "original_transaction_id" = 1000000350033379;
+                             "product_id" = AutoRenewSubsc;
+                             "purchase_date" = "2017-11-06 16:37:15 Etc/GMT";
+                             "purchase_date_ms" = 1509986235000;
+                             "purchase_date_pst" = "2017-11-06 08:37:15 America/Los_Angeles";
+                             quantity = 1;
+                             "transaction_id" = 1000000350037001;
+                             "web_order_line_item_id" = 1000000036803340;
+                             },
+                             {
+                             "is_trial_period" = false;
+                             "original_purchase_date" = "2017-11-06 16:38:18 Etc/GMT";
+                             "original_purchase_date_ms" = 1509986298000;
+                             "original_purchase_date_pst" = "2017-11-06 08:38:18 America/Los_Angeles";
+                             "original_transaction_id" = 1000000350037213;
+                             "product_id" = NonCons;
+                             "purchase_date" = "2017-11-06 16:38:18 Etc/GMT";
+                             "purchase_date_ms" = 1509986298000;
+                             "purchase_date_pst" = "2017-11-06 08:38:18 America/Los_Angeles";
+                             quantity = 1;
+                             "transaction_id" = 1000000350037213;
+                             }
+                             );
+"pending_renewal_info" =     (
+                              {
+                              "auto_renew_product_id" = AutoRenewSubsc;
+                              "auto_renew_status" = 1;
+                              "original_transaction_id" = 1000000350033379;
+                              "product_id" = AutoRenewSubsc;
+                              }
+                              );
+receipt =     {
+    "adam_id" = 0;
+    "app_item_id" = 0;
+    "application_version" = 2;
+    "bundle_id" = "SweetPea.IAPTester";
+    "download_id" = 0;
+    "in_app" =         (
+                        {
+                        "is_trial_period" = false;
+                        "original_purchase_date" = "2017-11-06 16:38:18 Etc/GMT";
+                        "original_purchase_date_ms" = 1509986298000;
+                        "original_purchase_date_pst" = "2017-11-06 08:38:18 America/Los_Angeles";
+                        "original_transaction_id" = 1000000350037213;
+                        "product_id" = NonCons;
+                        "purchase_date" = "2017-11-06 16:38:18 Etc/GMT";
+                        "purchase_date_ms" = 1509986298000;
+                        "purchase_date_pst" = "2017-11-06 08:38:18 America/Los_Angeles";
+                        quantity = 1;
+                        "transaction_id" = 1000000350037213;
+                        },
+                        {
+                        "expires_date" = "2017-11-06 16:23:08 Etc/GMT";
+                        "expires_date_ms" = 1509985388000;
+                        "expires_date_pst" = "2017-11-06 08:23:08 America/Los_Angeles";
+                        "is_trial_period" = false;
+                        "original_purchase_date" = "2017-11-06 16:15:09 Etc/GMT";
+                        "original_purchase_date_ms" = 1509984909000;
+                        "original_purchase_date_pst" = "2017-11-06 08:15:09 America/Los_Angeles";
+                        "original_transaction_id" = 1000000350033379;
+                        "product_id" = AutoRenewSubsc;
+                        "purchase_date" = "2017-11-06 16:18:08 Etc/GMT";
+                        "purchase_date_ms" = 1509985088000;
+                        "purchase_date_pst" = "2017-11-06 08:18:08 America/Los_Angeles";
+                        quantity = 1;
+                        "transaction_id" = 1000000350033483;
+                        "web_order_line_item_id" = 1000000036803205;
+                        },
+                        {
+                        "expires_date" = "2017-11-06 16:28:30 Etc/GMT";
+                        "expires_date_ms" = 1509985710000;
+                        "expires_date_pst" = "2017-11-06 08:28:30 America/Los_Angeles";
+                        "is_trial_period" = false;
+                        "original_purchase_date" = "2017-11-06 16:15:09 Etc/GMT";
+                        "original_purchase_date_ms" = 1509984909000;
+                        "original_purchase_date_pst" = "2017-11-06 08:15:09 America/Los_Angeles";
+                        "original_transaction_id" = 1000000350033379;
+                        "product_id" = AutoRenewSubsc;
+                        "purchase_date" = "2017-11-06 16:23:30 Etc/GMT";
+                        "purchase_date_ms" = 1509985410000;
+                        "purchase_date_pst" = "2017-11-06 08:23:30 America/Los_Angeles";
+                        quantity = 1;
+                        "transaction_id" = 1000000350034665;
+                        "web_order_line_item_id" = 1000000036803213;
+                        },
+                        {
+                        "expires_date" = "2017-11-06 16:34:58 Etc/GMT";
+                        "expires_date_ms" = 1509986098000;
+                        "expires_date_pst" = "2017-11-06 08:34:58 America/Los_Angeles";
+                        "is_trial_period" = false;
+                        "original_purchase_date" = "2017-11-06 16:15:09 Etc/GMT";
+                        "original_purchase_date_ms" = 1509984909000;
+                        "original_purchase_date_pst" = "2017-11-06 08:15:09 America/Los_Angeles";
+                        "original_transaction_id" = 1000000350033379;
+                        "product_id" = AutoRenewSubsc;
+                        "purchase_date" = "2017-11-06 16:29:58 Etc/GMT";
+                        "purchase_date_ms" = 1509985798000;
+                        "purchase_date_pst" = "2017-11-06 08:29:58 America/Los_Angeles";
+                        quantity = 1;
+                        "transaction_id" = 1000000350035435;
+                        "web_order_line_item_id" = 1000000036803279;
+                        },
+                        {
+                        "expires_date" = "2017-11-06 16:42:15 Etc/GMT";
+                        "expires_date_ms" = 1509986535000;
+                        "expires_date_pst" = "2017-11-06 08:42:15 America/Los_Angeles";
+                        "is_trial_period" = false;
+                        "original_purchase_date" = "2017-11-06 16:15:09 Etc/GMT";
+                        "original_purchase_date_ms" = 1509984909000;
+                        "original_purchase_date_pst" = "2017-11-06 08:15:09 America/Los_Angeles";
+                        "original_transaction_id" = 1000000350033379;
+                        "product_id" = AutoRenewSubsc;
+                        "purchase_date" = "2017-11-06 16:37:15 Etc/GMT";
+                        "purchase_date_ms" = 1509986235000;
+                        "purchase_date_pst" = "2017-11-06 08:37:15 America/Los_Angeles";
+                        quantity = 1;
+                        "transaction_id" = 1000000350037001;
+                        "web_order_line_item_id" = 1000000036803340;
+                        },
+                        {
+                        "expires_date" = "2017-11-06 16:18:08 Etc/GMT";
+                        "expires_date_ms" = 1509985088000;
+                        "expires_date_pst" = "2017-11-06 08:18:08 America/Los_Angeles";
+                        "is_trial_period" = true;
+                        "original_purchase_date" = "2017-11-06 16:15:09 Etc/GMT";
+                        "original_purchase_date_ms" = 1509984909000;
+                        "original_purchase_date_pst" = "2017-11-06 08:15:09 America/Los_Angeles";
+                        "original_transaction_id" = 1000000350033379;
+                        "product_id" = AutoRenewSubsc;
+                        "purchase_date" = "2017-11-06 16:15:08 Etc/GMT";
+                        "purchase_date_ms" = 1509984908000;
+                        "purchase_date_pst" = "2017-11-06 08:15:08 America/Los_Angeles";
+                        quantity = 1;
+                        "transaction_id" = 1000000350033379;
+                        "web_order_line_item_id" = 1000000036803204;
+                        }
+                        );
+    "original_application_version" = "1.0";
+    "original_purchase_date" = "2013-08-01 07:00:00 Etc/GMT";
+    "original_purchase_date_ms" = 1375340400000;
+    "original_purchase_date_pst" = "2013-08-01 00:00:00 America/Los_Angeles";
+    "receipt_creation_date" = "2017-11-06 16:38:19 Etc/GMT";
+    "receipt_creation_date_ms" = 1509986299000;
+    "receipt_creation_date_pst" = "2017-11-06 08:38:19 America/Los_Angeles";
+    "receipt_type" = ProductionSandbox;
+    "request_date" = "2017-11-06 16:38:34 Etc/GMT";
+    "request_date_ms" = 1509986314708;
+    "request_date_pst" = "2017-11-06 08:38:34 America/Los_Angeles";
+    "version_external_identifier" = 0;
+};
+status = 0;
+}

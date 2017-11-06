@@ -8,7 +8,7 @@
 
 import Foundation
 import StoreKit
-
+/*
 class IAProduct: SKProduct {
     var purchased: Bool
     var sandbox: Bool
@@ -27,3 +27,4 @@ enum IAProductType {
     case consumable
     case nonConsumable
 }
+*/

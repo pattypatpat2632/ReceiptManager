@@ -13,52 +13,11 @@ class IAPTesterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        let testJSON: [String: Any] = [
-            "environment" : "Sandbox",
-            "receipt" : [
-                "adam_id" : "0",
-                "app_item_id" : "0",
-                "application_version" : "2",
-                "bundle_id" : "SweetPea.IAPTester",
-                "download_id" : "0",
-                "in_app" : [
-                    [
-                        "original_application_version" : "1.0",
-                        "original_purchase_date" : "2013-08-01 07:00:00 Etc/GMT",
-                        "original_purchase_date_ms" : "1375340400000",
-                        "original_purchase_date_pst" : "2013-08-01 00:00:00 America/Los_Angeles",
-                        "receipt_creation_date" : "2017-11-03 18:00:52 Etc/GMT",
-                        "receipt_creation_date_ms" : "1509732052000",
-                        "receipt_creation_date_pst" : "2017-11-03 11:00:52 America/Los_Angeles",
-                        "receipt_type" : "ProductionSandbox",
-                        "request_date" : "2017-11-03 18:04:38 Etc/GMT",
-                        "request_date_ms" : "1509732278403",
-                        "request_date_pst" : "2017-11-03 11:04:38 America/Los_Angeles",
-                        "version_external_identifier" : "0"
-                    ],
-                    [
-                        "expires_date" : "2017-11-06 16:18:08 Etc/GMT",
-                        "expires_date_ms" : "1509985088000",
-                        "expires_date_pst" : "2017-11-06 08:18:08 America/Los_Angeles",
-                        "is_trial_period" : true,
-                        "original_purchase_date" : "2017-11-06 16:15:09 Etc/GMT",
-                        "original_purchase_date_ms" : "1509984909000",
-                        "original_purchase_date_pst" : "2017-11-06 08:15:09 America/Los_Angeles",
-                        "original_transaction_id" : "1000000350033379",
-                        "product_id" : "AutoRenewSubsc",
-                        "purchase_date" : "2017-11-06 16:15:08 Etc/GMT",
-                        "purchase_date_ms" : "1509984908000",
-                        "purchase_date_pst" : "2017-11-06 08:15:08 America/Los_Angeles",
-                        "quantity" : "1",
-                        "transaction_id" : "1000000350033379",
-                        "web_order_line_item_id" : "1000000036803204",
-                    ]
-                ]
-            ],
-            "status" : "0"
-        ]
         
-        testData = try? JSONSerialization.data(withJSONObject: testJSON, options: [])
+        
+        let path = Bundle.main.path(forResource: "test", ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        testData = try! Data(contentsOf: url)
     }
     
     override func tearDown() {

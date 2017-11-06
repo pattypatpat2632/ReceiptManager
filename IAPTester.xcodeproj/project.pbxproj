@@ -23,6 +23,8 @@
 		EC67C1BC1FACF0B300398E8C /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1BB1FACF0B300398E8C /* Receipt.swift */; };
 		EC67C1BD1FACF0C100398E8C /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1BB1FACF0B300398E8C /* Receipt.swift */; };
 		ECA4C2161FB0B86200F300FD /* IAProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2151FB0B86200F300FD /* IAProduct.swift */; };
+		ECA4C2181FB0C87E00F300FD /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA4C2171FB0C87E00F300FD /* test.json */; };
+		ECA4C2191FB0CAAB00F300FD /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA4C2171FB0C87E00F300FD /* test.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,7 @@
 		EC67C1B81FACEEDF00398E8C /* ReceiptsSubContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsSubContainer.swift; sourceTree = "<group>"; };
 		EC67C1BB1FACF0B300398E8C /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		ECA4C2151FB0B86200F300FD /* IAProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAProduct.swift; sourceTree = "<group>"; };
+		ECA4C2171FB0C87E00F300FD /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,7 @@
 			children = (
 				EC67C1AD1FACE9E800398E8C /* IAPTesterTests.swift */,
 				EC67C1AF1FACE9E800398E8C /* Info.plist */,
+				ECA4C2171FB0C87E00F300FD /* test.json */,
 			);
 			path = IAPTesterTests;
 			sourceTree = "<group>";
@@ -220,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC2465451F9FBC3C0065BD8C /* LaunchScreen.storyboard in Resources */,
+				ECA4C2191FB0CAAB00F300FD /* test.json in Resources */,
 				EC2465421F9FBC3C0065BD8C /* Assets.xcassets in Resources */,
 				EC2465401F9FBC3C0065BD8C /* Main.storyboard in Resources */,
 			);
@@ -229,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA4C2181FB0C87E00F300FD /* test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

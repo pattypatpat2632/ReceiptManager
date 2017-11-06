@@ -18,7 +18,7 @@ class IAPHandler: NSObject {
     fileprivate var productsRequest = SKProductsRequest()
     fileprivate var iapProducts = [SKProduct]()
     
-    var allProducts: SKProduct {
+    var allProducts: [SKProduct] {
         return iapProducts
     }
     
@@ -51,13 +51,13 @@ class IAPHandler: NSObject {
     }
 }
 
-extension IAPPurchaseHandler: SKProductsRequestDelegate {
+extension IAPHandler: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         iapProducts = response.products
     }
 }
 
-extension IAPPurchaseHandler: SKPaymentTransactionObserver {
+extension IAPHandler: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             
