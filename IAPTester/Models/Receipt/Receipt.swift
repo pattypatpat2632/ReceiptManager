@@ -9,10 +9,7 @@
 import Foundation
 
 public struct Receipt: Codable {
-    let original_application_version: String
+    
     let original_purchase_date_ms: String
-    let receipt_creation_date_ms: String
-    let receipt_type: String
-    let request_date_ms: String
-    let version_external_identifier: String
+    
 }

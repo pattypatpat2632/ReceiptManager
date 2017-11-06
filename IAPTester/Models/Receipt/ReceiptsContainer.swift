@@ -10,6 +10,6 @@ import Foundation
 
 public struct ReceiptsContainer: Codable {
     let environment: String
-    let status: String
+    let status: Double
     let receipt: ReceiptsSubContainer
 }

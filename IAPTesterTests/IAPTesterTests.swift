@@ -31,7 +31,7 @@ class IAPTesterTests: XCTestCase {
             XCTAssert(receiptContainer.environment == "Sandbox", "Did not get correct label from receipt container")
             XCTAssert(receiptContainer.receipt.bundle_id == "SweetPea.IAPTester", "Did not get receipt sub container")
             for receipt in receiptContainer.receipt.in_app {
-                XCTAssert(receipt.receipt_type == "ProductionSandbox", "Did not get valid in app receipt data from receipt container")
+                XCTAssert(receipt.original_purchase_date_ms != "0", "Check to make sure each receipt has a valid date")
             }
         } else {
             XCTAssert(false, "testData was nil")
