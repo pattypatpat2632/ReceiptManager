@@ -80,6 +80,7 @@ extension ReceiptManager {
         var dic: [String: AnyObject] = ["receipt-data": encodedData as AnyObject]
         dic["password"] = appSecret as AnyObject
         
+        
         let json = try! JSONSerialization.data(withJSONObject: dic, options: [])
         var urlRequest = URLRequest(url: receiptValidUrl)
         urlRequest.httpMethod = "POST"
