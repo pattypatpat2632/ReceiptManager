@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ReceiptManager {
+    
+    var appSecret: String = APP_SECRET
     
     @IBOutlet var label: UILabel!
     let purchaseHandler = IAPPurchaseHandler()
@@ -16,6 +18,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         purchaseHandler.fetchAvailableProducts()
+        startValidatingReceipts(completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +32,7 @@ class ViewController: UIViewController {
     @IBAction func purchaseNonConsTapped(_ sender: Any) {
     }
     @IBAction func purchaseSubTapped(_ sender: Any) {
+        purchaseHandler.purchaseSubscription()
     }
     
 }
