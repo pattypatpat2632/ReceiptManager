@@ -29,6 +29,7 @@ class IAPTesterTests: XCTestCase {
         if let data = testData {
             let receiptContainer = try! JSONDecoder().decode(ReceiptsContainer.self, from: data)
             XCTAssert(receiptContainer.environment == "Sandbox", "Did not get correct label from receipt container")
+            XCTAssert(receiptContainer.pending_renewal_info.count >= 1, "There should be at least one pending renewal")
             XCTAssert(receiptContainer.receipt.bundle_id == "SweetPea.IAPTester", "Did not get receipt sub container")
             for receipt in receiptContainer.receipt.in_app {
                 XCTAssert(receipt.original_purchase_date_ms != "0", "Check to make sure each receipt has a valid date")

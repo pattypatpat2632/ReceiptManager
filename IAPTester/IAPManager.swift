@@ -9,14 +9,15 @@
 import Foundation
 import StoreKit
 
+// This class handles all of the calls to StoreKit
+
 class IAPManager: NSObject {
     
-    let consumableID = "CP1"
     let productIDs: Set<String>
     
-    fileprivate var currentProduct = SKProduct()
-    fileprivate var productsRequest = SKProductsRequest()
-    fileprivate var iapProducts = [SKProduct]()
+    private var currentProduct = SKProduct()
+    private var productsRequest = SKProductsRequest()
+    private var iapProducts = [SKProduct]()
     
     var allProducts: [SKProduct] {
         return iapProducts

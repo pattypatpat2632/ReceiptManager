@@ -28,9 +28,8 @@ class IAProduct: SKProduct {
     }
     
     
-    init(purchased: Bool) {
+    init() {
         super.init()
-        
     }
 }
 

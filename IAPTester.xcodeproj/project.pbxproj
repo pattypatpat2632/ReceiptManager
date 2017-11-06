@@ -26,6 +26,8 @@
 		ECA4C2181FB0C87E00F300FD /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA4C2171FB0C87E00F300FD /* test.json */; };
 		ECA4C2191FB0CAAB00F300FD /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA4C2171FB0C87E00F300FD /* test.json */; };
 		ECA4C21D1FB1102300F300FD /* PendingRenewal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */; };
+		ECA4C21E1FB1115D00F300FD /* PendingRenewal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */; };
+		ECA4C2201FB1128C00F300FD /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C21F1FB1128C00F300FD /* ProductManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,7 @@
 		ECA4C2151FB0B86200F300FD /* IAProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAProduct.swift; sourceTree = "<group>"; };
 		ECA4C2171FB0C87E00F300FD /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRenewal.swift; sourceTree = "<group>"; };
+		ECA4C21F1FB1128C00F300FD /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +110,9 @@
 				EC2465431F9FBC3C0065BD8C /* LaunchScreen.storyboard */,
 				EC2465461F9FBC3C0065BD8C /* Info.plist */,
 				EC24654C1F9FBE710065BD8C /* IAPManager.swift */,
-				EC24656A1FA0DC700065BD8C /* Secret.swift */,
 				EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */,
+				EC24656A1FA0DC700065BD8C /* Secret.swift */,
+				ECA4C21F1FB1128C00F300FD /* ProductManager.swift */,
 			);
 			path = IAPTester;
 			sourceTree = "<group>";
@@ -249,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC24654D1F9FBE710065BD8C /* IAPManager.swift in Sources */,
+				ECA4C2201FB1128C00F300FD /* ProductManager.swift in Sources */,
 				EC67C1B91FACEEDF00398E8C /* ReceiptsSubContainer.swift in Sources */,
 				ECA4C2161FB0B86200F300FD /* IAProduct.swift in Sources */,
 				EC24656B1FA0DC700065BD8C /* Secret.swift in Sources */,
@@ -269,6 +274,7 @@
 				EC67C1BA1FACF08400398E8C /* ReceiptsSubContainer.swift in Sources */,
 				EC67C1B71FACEDAA00398E8C /* ReceiptsContainer.swift in Sources */,
 				EC67C1B61FACECF700398E8C /* IAPTesterTests.swift in Sources */,
+				ECA4C21E1FB1115D00F300FD /* PendingRenewal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
