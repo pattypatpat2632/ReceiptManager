@@ -9,20 +9,29 @@
 import Foundation
 import StoreKit
 
-class IAPPurchaseHandler: NSObject {
+class IAPHandler: NSObject {
     
     let consumableID = "CP1"
+    let productIDs: Set<String>
     
     fileprivate var currentProduct = SKProduct()
     fileprivate var productsRequest = SKProductsRequest()
     fileprivate var iapProducts = [SKProduct]()
     
+    var allProducts: SKProduct {
+        return iapProducts
+    }
+    
+    init(productIDs: Set<String>) {
+        self.productIDs = productIDs
+        super.init()
+    }
+    
     func canMakePurchases() -> Bool { return SKPaymentQueue.canMakePayments() }
     
     func fetchAvailableProducts(){
         if canMakePurchases() {print("Purchases allowed")}
-        print("FETCHING PRODUCTS")
-        let productIdentifiers: Set = [consumableID]
+        let productIdentifiers: Set<String> = productIDs
         
         productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
         productsRequest.delegate = self
@@ -32,7 +41,6 @@ class IAPPurchaseHandler: NSObject {
     func purchaseProduct() {
         guard canMakePurchases() else {return}
         guard iapProducts.count > 0 else {
-            print("NO PRODUCTS TO PURCHASE")
             return}
         
         let product = iapProducts[0]
@@ -45,11 +53,7 @@ class IAPPurchaseHandler: NSObject {
 
 extension IAPPurchaseHandler: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        print("RESPONSE RECEIVED")
         iapProducts = response.products
-        response.products.forEach{
-            print($0.productIdentifier)
-        }
     }
 }
 
@@ -70,8 +74,9 @@ extension IAPPurchaseHandler: SKPaymentTransactionObserver {
                 print("restored product")
                 print("Product restored:\(currentProduct.productIdentifier)")
                  SKPaymentQueue.default().finishTransaction(transaction)
-            default:
-                print("default product transaction")
+            case .deferred:
+                print("Deferred payment")
+
             }
         }
     }

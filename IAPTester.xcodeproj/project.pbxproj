@@ -12,10 +12,28 @@
 		EC2465401F9FBC3C0065BD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC24653E1F9FBC3C0065BD8C /* Main.storyboard */; };
 		EC2465421F9FBC3C0065BD8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC2465411F9FBC3C0065BD8C /* Assets.xcassets */; };
 		EC2465451F9FBC3C0065BD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2465431F9FBC3C0065BD8C /* LaunchScreen.storyboard */; };
-		EC24654D1F9FBE710065BD8C /* IAPPurchaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24654C1F9FBE710065BD8C /* IAPPurchaseHandler.swift */; };
+		EC24654D1F9FBE710065BD8C /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24654C1F9FBE710065BD8C /* IAPHandler.swift */; };
 		EC24656B1FA0DC700065BD8C /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656A1FA0DC700065BD8C /* Secret.swift */; };
 		EC24656D1FA0DD650065BD8C /* ReceiptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */; };
+		EC67C1A61FACE92700398E8C /* ReceiptsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1A51FACE92700398E8C /* ReceiptsContainer.swift */; };
+		EC67C1B61FACECF700398E8C /* IAPTesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1AD1FACE9E800398E8C /* IAPTesterTests.swift */; };
+		EC67C1B71FACEDAA00398E8C /* ReceiptsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1A51FACE92700398E8C /* ReceiptsContainer.swift */; };
+		EC67C1B91FACEEDF00398E8C /* ReceiptsSubContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1B81FACEEDF00398E8C /* ReceiptsSubContainer.swift */; };
+		EC67C1BA1FACF08400398E8C /* ReceiptsSubContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1B81FACEEDF00398E8C /* ReceiptsSubContainer.swift */; };
+		EC67C1BC1FACF0B300398E8C /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1BB1FACF0B300398E8C /* Receipt.swift */; };
+		EC67C1BD1FACF0C100398E8C /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1BB1FACF0B300398E8C /* Receipt.swift */; };
+		ECA4C2161FB0B86200F300FD /* IAProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2151FB0B86200F300FD /* IAProduct.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC67C1B01FACE9E800398E8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC24652F1F9FBC3C0065BD8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC2465361F9FBC3C0065BD8C;
+			remoteInfo = IAPTester;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EC2465371F9FBC3C0065BD8C /* IAPTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IAPTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -25,13 +43,27 @@
 		EC2465411F9FBC3C0065BD8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC2465441F9FBC3C0065BD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC2465461F9FBC3C0065BD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC24654C1F9FBE710065BD8C /* IAPPurchaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPPurchaseHandler.swift; sourceTree = "<group>"; };
+		EC24654C1F9FBE710065BD8C /* IAPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHandler.swift; sourceTree = "<group>"; };
 		EC24656A1FA0DC700065BD8C /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptManager.swift; sourceTree = "<group>"; };
+		EC67C1A51FACE92700398E8C /* ReceiptsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsContainer.swift; sourceTree = "<group>"; };
+		EC67C1AB1FACE9E800398E8C /* IAPTesterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IAPTesterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC67C1AD1FACE9E800398E8C /* IAPTesterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPTesterTests.swift; sourceTree = "<group>"; };
+		EC67C1AF1FACE9E800398E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC67C1B81FACEEDF00398E8C /* ReceiptsSubContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsSubContainer.swift; sourceTree = "<group>"; };
+		EC67C1BB1FACF0B300398E8C /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		ECA4C2151FB0B86200F300FD /* IAProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAProduct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EC2465341F9FBC3C0065BD8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC67C1A81FACE9E800398E8C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				EC2465391F9FBC3C0065BD8C /* IAPTester */,
+				EC67C1AC1FACE9E800398E8C /* IAPTesterTests */,
 				EC2465381F9FBC3C0065BD8C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				EC2465371F9FBC3C0065BD8C /* IAPTester.app */,
+				EC67C1AB1FACE9E800398E8C /* IAPTesterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,25 +94,46 @@
 		EC2465391F9FBC3C0065BD8C /* IAPTester */ = {
 			isa = PBXGroup;
 			children = (
-				EC24656E1FA104470065BD8C /* Models */,
+				EC67C1A41FACE8FA00398E8C /* Models */,
 				EC24653A1F9FBC3C0065BD8C /* AppDelegate.swift */,
 				EC24653C1F9FBC3C0065BD8C /* ViewController.swift */,
 				EC24653E1F9FBC3C0065BD8C /* Main.storyboard */,
 				EC2465411F9FBC3C0065BD8C /* Assets.xcassets */,
 				EC2465431F9FBC3C0065BD8C /* LaunchScreen.storyboard */,
 				EC2465461F9FBC3C0065BD8C /* Info.plist */,
-				EC24654C1F9FBE710065BD8C /* IAPPurchaseHandler.swift */,
+				EC24654C1F9FBE710065BD8C /* IAPHandler.swift */,
 				EC24656A1FA0DC700065BD8C /* Secret.swift */,
 				EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */,
 			);
 			path = IAPTester;
 			sourceTree = "<group>";
 		};
-		EC24656E1FA104470065BD8C /* Models */ = {
+		EC67C1A41FACE8FA00398E8C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ECA4C2131FB0B6D900F300FD /* Receipt */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EC67C1AC1FACE9E800398E8C /* IAPTesterTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC67C1AD1FACE9E800398E8C /* IAPTesterTests.swift */,
+				EC67C1AF1FACE9E800398E8C /* Info.plist */,
+			);
+			path = IAPTesterTests;
+			sourceTree = "<group>";
+		};
+		ECA4C2131FB0B6D900F300FD /* Receipt */ = {
+			isa = PBXGroup;
+			children = (
+				EC67C1A51FACE92700398E8C /* ReceiptsContainer.swift */,
+				EC67C1B81FACEEDF00398E8C /* ReceiptsSubContainer.swift */,
+				EC67C1BB1FACF0B300398E8C /* Receipt.swift */,
+				ECA4C2151FB0B86200F300FD /* IAProduct.swift */,
+			);
+			path = Receipt;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -101,6 +156,24 @@
 			productReference = EC2465371F9FBC3C0065BD8C /* IAPTester.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EC67C1AA1FACE9E800398E8C /* IAPTesterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC67C1B21FACE9E800398E8C /* Build configuration list for PBXNativeTarget "IAPTesterTests" */;
+			buildPhases = (
+				EC67C1A71FACE9E800398E8C /* Sources */,
+				EC67C1A81FACE9E800398E8C /* Frameworks */,
+				EC67C1A91FACE9E800398E8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC67C1B11FACE9E800398E8C /* PBXTargetDependency */,
+			);
+			name = IAPTesterTests;
+			productName = IAPTesterTests;
+			productReference = EC67C1AB1FACE9E800398E8C /* IAPTesterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -114,6 +187,11 @@
 					EC2465361F9FBC3C0065BD8C = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+					};
+					EC67C1AA1FACE9E800398E8C = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EC2465361F9FBC3C0065BD8C;
 					};
 				};
 			};
@@ -131,6 +209,7 @@
 			projectRoot = "";
 			targets = (
 				EC2465361F9FBC3C0065BD8C /* IAPTester */,
+				EC67C1AA1FACE9E800398E8C /* IAPTesterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -146,6 +225,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EC67C1A91FACE9E800398E8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -153,15 +239,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC24654D1F9FBE710065BD8C /* IAPPurchaseHandler.swift in Sources */,
+				EC24654D1F9FBE710065BD8C /* IAPHandler.swift in Sources */,
+				EC67C1B91FACEEDF00398E8C /* ReceiptsSubContainer.swift in Sources */,
+				ECA4C2161FB0B86200F300FD /* IAProduct.swift in Sources */,
 				EC24656B1FA0DC700065BD8C /* Secret.swift in Sources */,
+				EC67C1A61FACE92700398E8C /* ReceiptsContainer.swift in Sources */,
+				EC67C1BC1FACF0B300398E8C /* Receipt.swift in Sources */,
 				EC24653D1F9FBC3C0065BD8C /* ViewController.swift in Sources */,
 				EC24656D1FA0DD650065BD8C /* ReceiptManager.swift in Sources */,
 				EC24653B1F9FBC3C0065BD8C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EC67C1A71FACE9E800398E8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC67C1BD1FACF0C100398E8C /* Receipt.swift in Sources */,
+				EC67C1BA1FACF08400398E8C /* ReceiptsSubContainer.swift in Sources */,
+				EC67C1B71FACEDAA00398E8C /* ReceiptsContainer.swift in Sources */,
+				EC67C1B61FACECF700398E8C /* IAPTesterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC67C1B11FACE9E800398E8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC2465361F9FBC3C0065BD8C /* IAPTester */;
+			targetProxy = EC67C1B01FACE9E800398E8C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EC24653E1F9FBC3C0065BD8C /* Main.storyboard */ = {
@@ -320,6 +429,38 @@
 			};
 			name = Release;
 		};
+		EC67C1B31FACE9E800398E8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 992D98C4QP;
+				INFOPLIST_FILE = IAPTesterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SweetPea.IAPTesterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IAPTester.app/IAPTester";
+			};
+			name = Debug;
+		};
+		EC67C1B41FACE9E800398E8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 992D98C4QP;
+				INFOPLIST_FILE = IAPTesterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SweetPea.IAPTesterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IAPTester.app/IAPTester";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -337,6 +478,15 @@
 			buildConfigurations = (
 				EC24654A1F9FBC3C0065BD8C /* Debug */,
 				EC24654B1F9FBC3C0065BD8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC67C1B21FACE9E800398E8C /* Build configuration list for PBXNativeTarget "IAPTesterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC67C1B31FACE9E800398E8C /* Debug */,
+				EC67C1B41FACE9E800398E8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

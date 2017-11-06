@@ -8,19 +8,28 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ReceiptManager {
     
     @IBOutlet var label: UILabel!
     let purchaseHandler = IAPPurchaseHandler()
+    var appSecret: String = APP_SECRET
+    var validationAttempted: Bool = false
+
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         purchaseHandler.fetchAvailableProducts()
+       startValidatingReceipts(completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        
     }
 
     @IBAction func purchaseTapped(_ sender: Any) {

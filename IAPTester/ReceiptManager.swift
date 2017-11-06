@@ -6,27 +6,30 @@
 //  Copyright © 2017 Patrick O'Leary. All rights reserved.
 //
 
+// This is a protocol for handling all of the calls to Apple's receipt validation
+
 import Foundation
 import StoreKit
 
 #if DEBUG
-    let IS_DEBUG = true
+let IS_DEBUG = true
 #else
-    let IS_DEBUG = false
+let IS_DEBUG = false
 #endif
 
 protocol ReceiptManager: SKRequestDelegate {
     
     var appSecret: String {get}
+    var validationAttempted: Bool {get set}
     
-    func startValidatingReceipts(completion: (()->Void)?)
+    func startValidatingReceipts(completion: ((ReceiptManagerResponse)->Void)?)
 }
 
 extension ReceiptManager {
     private var receiptValidationUrl: URL? {
         if IS_DEBUG {
             return URL(string: "https://sandbox.itunes.apple.com/verifyReceipt")
-        } else {
+        } else { 
             return URL(string: "https://buy.itunes.apple.com/verifyReceipt")
         }
     }
@@ -35,41 +38,38 @@ extension ReceiptManager {
         return Bundle.main.appStoreReceiptURL
     }
     
-    func startValidatingReceipts(completion: (()->Void)?) {
+    func startValidatingReceipts(completion: ((ReceiptManagerResponse)->Void)?) {
         if let isExist = try? localReceiptUrl?.checkResourceIsReachable(), isExist == true {
             do {
                 let data = try Data(contentsOf: localReceiptUrl!)
-                validate(data: data)
+                validate(data: data) { response in
+                    if let completion = completion {
+                        completion(response)
+                    }
+                }
             } catch {
-                
+                let parseError = ReceiptManagerError.parseError(description: "Invalid data found in contents of local receipt")
+                if let completion = completion {
+                    completion(.error(parseError))
+                }
             }
         } else {
-            let receiptRequest = SKReceiptRefreshRequest()
-            receiptRequest.delegate = self
-            receiptRequest.start()
+            if !validationAttempted {
+                let receiptRequest = SKReceiptRefreshRequest()
+                receiptRequest.delegate = self
+                receiptRequest.start()
+            } else {
+                let error = ReceiptManagerError.noReceipt(description: "No receipt could be retrieved")
+                if let completion = completion {
+                    completion(.error(error))
+                }
+            }
         }
     }
     
-    private func parse(data: Data) {
-        let json = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-        
-        guard let status = json["status"] as? NSNumber else {return}
-        if status == 0 {
-            let receipt = json["receipt"] as! NSDictionary
-            print("Receipt: \(receipt)")
-            
-            let purchases = receipt["in_app"] as! [NSDictionary]
-            
-            for _ in purchases {
-                print("PURCHASE FOUND")
-            }
-            
-        } else {
-            print("error validating receipts")
-        }
-    }
     
-    private func validate(data: Data) {
+    
+    private func validate(data: Data, completion: @escaping (ReceiptManagerResponse) -> Void) {
         guard let receiptValidUrl = receiptValidationUrl else {return} //TODO: error handling
         let encodedData = data.base64EncodedString(options: Data.Base64EncodingOptions.init(rawValue: 0))
         var dic: [String: AnyObject] = ["receipt-data": encodedData as AnyObject]
@@ -83,9 +83,16 @@ extension ReceiptManager {
         let session = URLSession.shared
         _ = session.dataTask(with: urlRequest) { (data, response, error) in
             if let receiptData = data {
-                self.parse(data: receiptData)
+                do {
+                    let receiptsContainer = try JSONDecoder().decode(ReceiptsContainer.self, from: receiptData)
+                    completion(.validReceipt(receiptsContainer))
+                } catch {
+                    let parseError = ReceiptManagerError.parseError(description: "Could not decode JSON data into receipts container")
+                    completion(.error(parseError))
+                }
             } else {
-                print("Error retrieving receipt data from itunes connect")
+                let parseError = ReceiptManagerError.parseError(description: "Error retrieving receipt data from itunes connect")
+                completion(.error(parseError))
             }
             }.resume()
     }
@@ -93,4 +100,14 @@ extension ReceiptManager {
     func requestDidFinish(_ request: SKRequest) {
         startValidatingReceipts(completion: nil)
     }
+}
+
+enum ReceiptManagerResponse {
+    case validReceipt(ReceiptsContainer)
+    case error(ReceiptManagerError)
+}
+
+enum ReceiptManagerError: Error {
+    case parseError(description: String)
+    case noReceipt(description: String)
 }
