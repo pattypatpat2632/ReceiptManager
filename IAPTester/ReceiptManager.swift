@@ -53,6 +53,13 @@ extension ReceiptManager {
     }
     
     private func parse(data: Data) {
+        
+        let json = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: Any]
+        print("JSON \n")
+        let string = String(data: data, encoding: String.Encoding.utf8)
+        print(string!)
+        print("\nEND JSON \n")
+        /*
         let json = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
         print(json)
 
@@ -70,7 +77,7 @@ extension ReceiptManager {
             
         } else {
             print("error validating receipts")
-        } 
+        } */
     }
     
     private func validate(data: Data) {
