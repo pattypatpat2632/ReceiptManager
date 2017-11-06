@@ -8,23 +8,35 @@
 
 import Foundation
 import StoreKit
-/*
+
 class IAProduct: SKProduct {
     var purchased: Bool
     var sandbox: Bool
     let type: IAProductType
+    let quantity: Int
+    let purchaseDate: Date
+    let expirationDate: Date
+    let expirationIntent: ExpirationIntent?
+    let autoRenew: Bool
+    
+    enum ExpirationIntent {
+        case customerCancelled //Customer cancelled a subscription
+        case billingError //EG Payment Information was no longer valid
+        case priceIncrease //If the customer didn't agree to a price increase
+        case unavailable //Product was not available at the time of renewal
+        case unknown // Unknown
+    }
     
     
     init(purchased: Bool) {
         super.init()
-        self.purchased = purchased
+        
     }
 }
 
 enum IAProductType {
     case subscription
-    case renewableSubscription
     case consumable
     case nonConsumable
 }
-*/
+

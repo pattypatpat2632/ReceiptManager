@@ -12,7 +12,7 @@
 		EC2465401F9FBC3C0065BD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC24653E1F9FBC3C0065BD8C /* Main.storyboard */; };
 		EC2465421F9FBC3C0065BD8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC2465411F9FBC3C0065BD8C /* Assets.xcassets */; };
 		EC2465451F9FBC3C0065BD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2465431F9FBC3C0065BD8C /* LaunchScreen.storyboard */; };
-		EC24654D1F9FBE710065BD8C /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24654C1F9FBE710065BD8C /* IAPHandler.swift */; };
+		EC24654D1F9FBE710065BD8C /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24654C1F9FBE710065BD8C /* IAPManager.swift */; };
 		EC24656B1FA0DC700065BD8C /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656A1FA0DC700065BD8C /* Secret.swift */; };
 		EC24656D1FA0DD650065BD8C /* ReceiptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */; };
 		EC67C1A61FACE92700398E8C /* ReceiptsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1A51FACE92700398E8C /* ReceiptsContainer.swift */; };
@@ -25,6 +25,7 @@
 		ECA4C2161FB0B86200F300FD /* IAProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2151FB0B86200F300FD /* IAProduct.swift */; };
 		ECA4C2181FB0C87E00F300FD /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA4C2171FB0C87E00F300FD /* test.json */; };
 		ECA4C2191FB0CAAB00F300FD /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA4C2171FB0C87E00F300FD /* test.json */; };
+		ECA4C21D1FB1102300F300FD /* PendingRenewal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +46,7 @@
 		EC2465411F9FBC3C0065BD8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC2465441F9FBC3C0065BD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC2465461F9FBC3C0065BD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC24654C1F9FBE710065BD8C /* IAPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHandler.swift; sourceTree = "<group>"; };
+		EC24654C1F9FBE710065BD8C /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		EC24656A1FA0DC700065BD8C /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptManager.swift; sourceTree = "<group>"; };
 		EC67C1A51FACE92700398E8C /* ReceiptsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsContainer.swift; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		EC67C1BB1FACF0B300398E8C /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		ECA4C2151FB0B86200F300FD /* IAProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAProduct.swift; sourceTree = "<group>"; };
 		ECA4C2171FB0C87E00F300FD /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRenewal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +106,7 @@
 				EC2465411F9FBC3C0065BD8C /* Assets.xcassets */,
 				EC2465431F9FBC3C0065BD8C /* LaunchScreen.storyboard */,
 				EC2465461F9FBC3C0065BD8C /* Info.plist */,
-				EC24654C1F9FBE710065BD8C /* IAPHandler.swift */,
+				EC24654C1F9FBE710065BD8C /* IAPManager.swift */,
 				EC24656A1FA0DC700065BD8C /* Secret.swift */,
 				EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */,
 			);
@@ -136,6 +138,7 @@
 				EC67C1B81FACEEDF00398E8C /* ReceiptsSubContainer.swift */,
 				EC67C1BB1FACF0B300398E8C /* Receipt.swift */,
 				ECA4C2151FB0B86200F300FD /* IAProduct.swift */,
+				ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */,
 			);
 			path = Receipt;
 			sourceTree = "<group>";
@@ -245,10 +248,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC24654D1F9FBE710065BD8C /* IAPHandler.swift in Sources */,
+				EC24654D1F9FBE710065BD8C /* IAPManager.swift in Sources */,
 				EC67C1B91FACEEDF00398E8C /* ReceiptsSubContainer.swift in Sources */,
 				ECA4C2161FB0B86200F300FD /* IAProduct.swift in Sources */,
 				EC24656B1FA0DC700065BD8C /* Secret.swift in Sources */,
+				ECA4C21D1FB1102300F300FD /* PendingRenewal.swift in Sources */,
 				EC67C1A61FACE92700398E8C /* ReceiptsContainer.swift in Sources */,
 				EC67C1BC1FACF0B300398E8C /* Receipt.swift in Sources */,
 				EC24653D1F9FBC3C0065BD8C /* ViewController.swift in Sources */,

@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, ReceiptManager {
     
     @IBOutlet var label: UILabel!
-    let purchaseHandler = IAPHandler(productIDs: [])
+    let purchaseHandler = IAPManager(productIDs: [])
     var appSecret: String = APP_SECRET
     var validationAttempted: Bool = false
 

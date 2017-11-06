@@ -9,7 +9,7 @@
 import Foundation
 import StoreKit
 
-class IAPHandler: NSObject {
+class IAPManager: NSObject {
     
     let consumableID = "CP1"
     let productIDs: Set<String>
@@ -49,15 +49,20 @@ class IAPHandler: NSObject {
         SKPaymentQueue.default().add(payment)
         currentProduct = product
     }
+    
+    func restoreProducts() {
+        SKPaymentQueue.default().add(self)
+        SKPaymentQueue.default().restoreCompletedTransactions()
+    }
 }
 
-extension IAPHandler: SKProductsRequestDelegate {
+extension IAPManager: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         iapProducts = response.products
     }
 }
 
-extension IAPHandler: SKPaymentTransactionObserver {
+extension IAPManager: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             
@@ -83,5 +88,18 @@ extension IAPHandler: SKPaymentTransactionObserver {
     
     func handlePurchasedState(for transaction: SKPaymentTransaction, inQueue queue: SKPaymentQueue) {
         queue.finishTransaction(transaction)
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
+        
+        return true
+    }
+    
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
+        
     }
 }
