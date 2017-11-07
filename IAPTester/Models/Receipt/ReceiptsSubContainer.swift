@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ReceiptsSubContainer: Codable {
+struct ReceiptsSubContainer: Codable {
     let bundle_id: String
     let original_application_version: String
     let receipt_creation_date_ms: String

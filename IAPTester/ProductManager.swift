@@ -9,6 +9,7 @@
 import Foundation
 import StoreKit
 
+//class for managing all IAProducts
 class ProductManager {
     
     var iapManager: IAPManager
@@ -30,20 +31,12 @@ class ProductManager {
     func start() {
         receiptManager.delegate = self
         iapManager.delegate = self
-        
         self.receiptManager.startValidatingReceipts()
         self.iapManager.fetchAvailableProducts()
     }
     
-    func receiveProducts(skProducts: [SKProduct], completion: () -> Void) -> Void {
-        self.skProducts = skProducts
-        completion()
-    }
-    
     private func attemptBuildProducts() {
-        print("BUILD ATTEMPT")
         guard let receiptsContainer = self.receiptsContainer, let skProducts = self.skProducts else {return}
-        print("VALID RECEIPT CONTAINER AND SK PRODUCTS")
         let productFactory = ProductFactory(receiptsContainer: receiptsContainer, skProducts: skProducts)
         self.products = productFactory.producedProducts()
         delegate?.allProductsProduced(products)

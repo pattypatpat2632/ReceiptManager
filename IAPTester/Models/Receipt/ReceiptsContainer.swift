@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ReceiptsContainer: Codable {
+internal struct ReceiptsContainer: Codable {
     let environment: String
     let status: Double
     let receipt: ReceiptsSubContainer

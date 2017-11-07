@@ -15,8 +15,6 @@ class IAPTesterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
-        
         let path = Bundle.main.path(forResource: "test", ofType: "json")
         let url = URL(fileURLWithPath: path!)
         testData = try! Data(contentsOf: url)

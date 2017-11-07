@@ -11,7 +11,7 @@ import StoreKit
 
 class IANotPurchased: IAProduct {
     var purchased = false
-    let quantity = 0
+    let quantity: Int = 0
     
     var localizedDesciption: String {
         return skProduct.localizedDescription
@@ -140,7 +140,7 @@ class IASubscription: IAProduct {
 }
 
 protocol IAProduct {
-    
+    var purchased: Bool {get}
     
 }
 

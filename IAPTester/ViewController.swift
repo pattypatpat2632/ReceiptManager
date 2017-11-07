@@ -31,14 +31,6 @@ class ViewController: UIViewController {
         
         
     }
-
-    @IBAction func purchaseTapped(_ sender: Any) {
-        purchaseHandler.purchaseProduct()
-    }
-    @IBAction func purchaseNonConsTapped(_ sender: Any) {
-    }
-    @IBAction func purchaseSubTapped(_ sender: Any) {
-    }
     
 }
 

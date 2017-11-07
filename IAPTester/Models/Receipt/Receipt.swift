@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Receipt: Codable {
+internal struct Receipt: Codable {
     
     let original_purchase_date_ms: String
     let is_trial_period: String?

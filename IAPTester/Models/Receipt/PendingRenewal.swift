@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PendingRenewal: Codable {
+internal struct PendingRenewal: Codable {
     let expiration_intent: String
     let auto_renew_product_id: String
     let original_transaction_id: String
