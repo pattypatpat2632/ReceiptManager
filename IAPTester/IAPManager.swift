@@ -9,20 +9,34 @@
 import Foundation
 import StoreKit
 
-class IAPPurchaseHandler: NSObject {
+// This class handles all of the calls to StoreKit
+
+class IAPManager: NSObject {
     
-    let consumableID = "CP1"
+    let productIDs: Set<String>
     
-    fileprivate var currentProduct = SKProduct()
-    fileprivate var productsRequest = SKProductsRequest()
-    fileprivate var iapProducts = [SKProduct]()
+    weak var delegate: IAPManagerDelegate?
     
-    func canMakePurchases() -> Bool { return SKPaymentQueue.canMakePayments() }
+    private var currentProduct = SKProduct()
+    private var productsRequest = SKProductsRequest()
+    private var iapProducts = [SKProduct]()
+    
+    var allProducts: [SKProduct] {
+        return iapProducts
+    }
+    
+    init(productIDs: Set<String>) {
+        self.productIDs = productIDs
+        super.init()
+    }
+    
+    private func canMakePurchases() -> Bool { return SKPaymentQueue.canMakePayments() }
     
     func fetchAvailableProducts(){
         if canMakePurchases() {print("Purchases allowed")}
-        print("FETCHING PRODUCTS")
-        let productIdentifiers: Set = [consumableID, "AutoRenewSubsc", "NonCons"]
+
+        let productIdentifiers: Set<String> = productIDs
+
         
         productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
         productsRequest.delegate = self
@@ -32,7 +46,6 @@ class IAPPurchaseHandler: NSObject {
     func purchaseProduct() {
         guard canMakePurchases() else {return}
         guard iapProducts.count > 0 else {
-            print("NO PRODUCTS TO PURCHASE")
             return}
         
         let product = iapProducts[0]
@@ -42,45 +55,22 @@ class IAPPurchaseHandler: NSObject {
         currentProduct = product
     }
     
-    func purchaseSubscription() {
-        guard canMakePurchases() else {return}
-        guard iapProducts.count > 0 else {
-            return
-        }
-        
-        let product = iapProducts[1]
-        let payment = SKPayment(product: product)
+
+    func restoreProducts() {
         SKPaymentQueue.default().add(self)
-        SKPaymentQueue.default().add(payment)
-        currentProduct = product
-    }
-    
-    func purchaseNonCons() {
-        guard canMakePurchases() else {return}
-        guard iapProducts.count > 0 else {
-            return
-        }
-        
-        let product = iapProducts[2]
-        let payment = SKPayment(product: product)
-        SKPaymentQueue.default().add(self)
-        SKPaymentQueue.default().add(payment)
-        currentProduct = product
-    
+        SKPaymentQueue.default().restoreCompletedTransactions()
+
     }
 }
 
-extension IAPPurchaseHandler: SKProductsRequestDelegate {
+extension IAPManager: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        print("RESPONSE RECEIVED")
         iapProducts = response.products
-        response.products.forEach{
-            print($0.productIdentifier)
-        }
+        delegate?.received(products: response.products)
     }
 }
 
-extension IAPPurchaseHandler: SKPaymentTransactionObserver {
+extension IAPManager: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             
@@ -97,8 +87,9 @@ extension IAPPurchaseHandler: SKPaymentTransactionObserver {
                 print("restored product")
                 print("Product restored:\(currentProduct.productIdentifier)")
                  SKPaymentQueue.default().finishTransaction(transaction)
-            default:
-                print("default product transaction")
+            case .deferred:
+                print("Deferred payment")
+
             }
         }
     }
@@ -106,4 +97,20 @@ extension IAPPurchaseHandler: SKPaymentTransactionObserver {
     func handlePurchasedState(for transaction: SKPaymentTransaction, inQueue queue: SKPaymentQueue) {
         queue.finishTransaction(transaction)
     }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
+        return true
+    }
+    
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
+        
+    }
+}
+
+protocol IAPManagerDelegate: class {
+    func received(products: [SKProduct])
 }

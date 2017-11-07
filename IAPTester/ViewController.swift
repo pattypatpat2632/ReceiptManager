@@ -13,27 +13,19 @@ class ViewController: UIViewController, ReceiptManager {
     var appSecret: String = APP_SECRET
     
     @IBOutlet var label: UILabel!
-    let purchaseHandler = IAPPurchaseHandler()
+    let purchaseHandler = IAPManager(productIDs: [])
+    var appSecret: String = APP_SECRET
+    var validationAttempted: Bool = false
+
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         purchaseHandler.fetchAvailableProducts()
-        startValidatingReceipts(completion: nil)
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func purchaseTapped(_ sender: Any) {
-        purchaseHandler.purchaseProduct()
-    }
-    @IBAction func purchaseNonConsTapped(_ sender: Any) {
-        purchaseHandler.purchaseNonCons()
-    }
-    @IBAction func purchaseSubTapped(_ sender: Any) {
-        purchaseHandler.purchaseSubscription()
     }
     
 }
