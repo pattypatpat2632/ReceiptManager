@@ -9,7 +9,7 @@
 import Foundation
 import StoreKit
 
-class ProductFactory {
+internal class ProductFactory {
     
     let skProducts: [SKProduct]
     let receipts: [Receipt]

@@ -17,7 +17,7 @@ let IS_DEBUG = true
 let IS_DEBUG = false
 #endif
 
-class ReceiptManager: NSObject, SKRequestDelegate {
+internal class ReceiptManager: NSObject, SKRequestDelegate {
     
     var appSecret: String
     var validationAttempted: Bool = false

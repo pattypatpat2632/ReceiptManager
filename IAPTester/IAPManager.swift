@@ -11,7 +11,7 @@ import StoreKit
 
 // This class handles all of the calls to StoreKit
 
-class IAPManager: NSObject {
+internal class IAPManager: NSObject {
     
     let productIDs: Set<String>
     

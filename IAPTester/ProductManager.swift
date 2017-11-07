@@ -10,17 +10,17 @@ import Foundation
 import StoreKit
 
 //class for managing all IAProducts
-class ProductManager {
+public class ProductManager {
     
-    var iapManager: IAPManager
-    var receiptManager: ReceiptManager
+    private var iapManager: IAPManager
+    private var receiptManager: ReceiptManager
     var products = [IAProduct]()
     weak var delegate: ProductManagerDelegate?
     
-    var receiptsContainer: ReceiptsContainer?
-    var skProducts: [SKProduct]?
+    private var receiptsContainer: ReceiptsContainer?
+    private var skProducts: [SKProduct]?
     
-    var productFactory: ProductFactory?
+    private var productFactory: ProductFactory?
     
     init(appSecret: String, productIDs: Set<String>) {
         self.iapManager = IAPManager(productIDs: productIDs)
