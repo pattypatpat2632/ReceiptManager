@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, ReceiptManager {
+class ViewController: UIViewController {
     
     @IBOutlet var label: UILabel!
     let purchaseHandler = IAPManager(productIDs: [])
@@ -23,7 +23,7 @@ class ViewController: UIViewController, ReceiptManager {
     override func viewDidLoad() {
         super.viewDidLoad()
         purchaseHandler.fetchAvailableProducts()
-       startValidatingReceipts(completion: nil)
+   
     }
 
     override func didReceiveMemoryWarning() {

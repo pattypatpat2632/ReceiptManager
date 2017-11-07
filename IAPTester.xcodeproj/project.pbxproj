@@ -28,6 +28,13 @@
 		ECA4C21D1FB1102300F300FD /* PendingRenewal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */; };
 		ECA4C21E1FB1115D00F300FD /* PendingRenewal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */; };
 		ECA4C2201FB1128C00F300FD /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C21F1FB1128C00F300FD /* ProductManager.swift */; };
+		ECA4C2221FB22A7400F300FD /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2211FB22A7400F300FD /* ProductFactory.swift */; };
+		ECA4C2231FB2517C00F300FD /* ReceiptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */; };
+		ECA4C2241FB2518300F300FD /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656A1FA0DC700065BD8C /* Secret.swift */; };
+		ECA4C2251FB25E7500F300FD /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24654C1F9FBE710065BD8C /* IAPManager.swift */; };
+		ECA4C2261FB2604000F300FD /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C21F1FB1128C00F300FD /* ProductManager.swift */; };
+		ECA4C2271FB2610D00F300FD /* IAProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2151FB0B86200F300FD /* IAProduct.swift */; };
+		ECA4C2281FB261D000F300FD /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2211FB22A7400F300FD /* ProductFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +68,7 @@
 		ECA4C2171FB0C87E00F300FD /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRenewal.swift; sourceTree = "<group>"; };
 		ECA4C21F1FB1128C00F300FD /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
+		ECA4C2211FB22A7400F300FD /* ProductFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +121,7 @@
 				EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */,
 				EC24656A1FA0DC700065BD8C /* Secret.swift */,
 				ECA4C21F1FB1128C00F300FD /* ProductManager.swift */,
+				ECA4C2211FB22A7400F300FD /* ProductFactory.swift */,
 			);
 			path = IAPTester;
 			sourceTree = "<group>";
@@ -120,6 +129,7 @@
 		EC67C1A41FACE8FA00398E8C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ECA4C2151FB0B86200F300FD /* IAProduct.swift */,
 				ECA4C2131FB0B6D900F300FD /* Receipt */,
 			);
 			path = Models;
@@ -141,7 +151,6 @@
 				EC67C1A51FACE92700398E8C /* ReceiptsContainer.swift */,
 				EC67C1B81FACEEDF00398E8C /* ReceiptsSubContainer.swift */,
 				EC67C1BB1FACF0B300398E8C /* Receipt.swift */,
-				ECA4C2151FB0B86200F300FD /* IAProduct.swift */,
 				ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */,
 			);
 			path = Receipt;
@@ -256,6 +265,7 @@
 				ECA4C2201FB1128C00F300FD /* ProductManager.swift in Sources */,
 				EC67C1B91FACEEDF00398E8C /* ReceiptsSubContainer.swift in Sources */,
 				ECA4C2161FB0B86200F300FD /* IAProduct.swift in Sources */,
+				ECA4C2221FB22A7400F300FD /* ProductFactory.swift in Sources */,
 				EC24656B1FA0DC700065BD8C /* Secret.swift in Sources */,
 				ECA4C21D1FB1102300F300FD /* PendingRenewal.swift in Sources */,
 				EC67C1A61FACE92700398E8C /* ReceiptsContainer.swift in Sources */,
@@ -270,11 +280,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA4C2251FB25E7500F300FD /* IAPManager.swift in Sources */,
 				EC67C1BD1FACF0C100398E8C /* Receipt.swift in Sources */,
+				ECA4C2241FB2518300F300FD /* Secret.swift in Sources */,
 				EC67C1BA1FACF08400398E8C /* ReceiptsSubContainer.swift in Sources */,
+				ECA4C2261FB2604000F300FD /* ProductManager.swift in Sources */,
+				ECA4C2281FB261D000F300FD /* ProductFactory.swift in Sources */,
 				EC67C1B71FACEDAA00398E8C /* ReceiptsContainer.swift in Sources */,
 				EC67C1B61FACECF700398E8C /* IAPTesterTests.swift in Sources */,
+				ECA4C2231FB2517C00F300FD /* ReceiptManager.swift in Sources */,
 				ECA4C21E1FB1115D00F300FD /* PendingRenewal.swift in Sources */,
+				ECA4C2271FB2610D00F300FD /* IAProduct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

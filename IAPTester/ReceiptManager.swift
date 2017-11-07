@@ -17,12 +17,18 @@ let IS_DEBUG = true
 let IS_DEBUG = false
 #endif
 
-protocol ReceiptManager: SKRequestDelegate {
+class ReceiptManager: NSObject, SKRequestDelegate {
     
-    var appSecret: String {get}
-    var validationAttempted: Bool {get set}
+    var appSecret: String
+    var validationAttempted: Bool = false
+    var receiptsContainer: ReceiptsContainer?
     
-    func startValidatingReceipts(completion: ((ReceiptManagerResponse)->Void)?)
+    weak var delegate: ReceiptManagerDelegate?
+    
+    init(appSecret: String) {
+        self.appSecret = appSecret
+        super.init()
+    }
 }
 
 extension ReceiptManager {
@@ -38,31 +44,29 @@ extension ReceiptManager {
         return Bundle.main.appStoreReceiptURL
     }
     
-    func startValidatingReceipts(completion: ((ReceiptManagerResponse)->Void)?) {
+    func startValidatingReceipts() {
         if let isExist = try? localReceiptUrl?.checkResourceIsReachable(), isExist == true {
             do {
                 let data = try Data(contentsOf: localReceiptUrl!)
                 validate(data: data) { response in
-                    if let completion = completion {
-                        completion(response)
-                    }
+                    self.delegate?.response(response)
                 }
             } catch {
                 let parseError = ReceiptManagerError.parseError(description: "Invalid data found in contents of local receipt")
-                if let completion = completion {
-                    completion(.error(parseError))
-                }
+                
+                self.delegate?.response(.error(parseError))
+                
             }
         } else {
             if !validationAttempted {
                 let receiptRequest = SKReceiptRefreshRequest()
                 receiptRequest.delegate = self
                 receiptRequest.start()
+                validationAttempted = true
             } else {
                 let error = ReceiptManagerError.noReceipt(description: "No receipt could be retrieved")
-                if let completion = completion {
-                    completion(.error(error))
-                }
+                self.delegate?.response(.error(error))
+                
             }
         }
     }
@@ -97,8 +101,8 @@ extension ReceiptManager {
             }.resume()
     }
     
-    func requestDidFinish(_ request: SKRequest) {
-        startValidatingReceipts(completion: nil)
+    @objc func requestDidFinish(_ request: SKRequest) {
+        startValidatingReceipts()
     }
 }
 
@@ -110,4 +114,8 @@ enum ReceiptManagerResponse {
 enum ReceiptManagerError: Error {
     case parseError(description: String)
     case noReceipt(description: String)
+}
+
+protocol ReceiptManagerDelegate: class {
+    func response(_ response: ReceiptManagerResponse)
 }

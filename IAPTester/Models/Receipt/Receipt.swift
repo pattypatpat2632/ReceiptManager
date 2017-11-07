@@ -11,6 +11,8 @@ import Foundation
 public struct Receipt: Codable {
     
     let original_purchase_date_ms: String
-    let is_trial_period: String
-    
+    let is_trial_period: String?
+    let product_id: String
+    let quantity: String
+    let expires_date_ms: String?
 }

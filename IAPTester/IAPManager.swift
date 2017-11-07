@@ -15,6 +15,8 @@ class IAPManager: NSObject {
     
     let productIDs: Set<String>
     
+    weak var delegate: IAPManagerDelegate?
+    
     private var currentProduct = SKProduct()
     private var productsRequest = SKProductsRequest()
     private var iapProducts = [SKProduct]()
@@ -28,7 +30,7 @@ class IAPManager: NSObject {
         super.init()
     }
     
-    func canMakePurchases() -> Bool { return SKPaymentQueue.canMakePayments() }
+    private func canMakePurchases() -> Bool { return SKPaymentQueue.canMakePayments() }
     
     func fetchAvailableProducts(){
         if canMakePurchases() {print("Purchases allowed")}
@@ -60,6 +62,7 @@ class IAPManager: NSObject {
 extension IAPManager: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         iapProducts = response.products
+        delegate?.received(products: response.products)
     }
 }
 
@@ -92,7 +95,6 @@ extension IAPManager: SKPaymentTransactionObserver {
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
-        
         return true
     }
     
@@ -103,4 +105,8 @@ extension IAPManager: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
         
     }
+}
+
+protocol IAPManagerDelegate: class {
+    func received(products: [SKProduct])
 }
