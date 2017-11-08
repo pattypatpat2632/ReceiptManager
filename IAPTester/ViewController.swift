@@ -8,28 +8,41 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ProductManagerDelegate {
     
     @IBOutlet var label: UILabel!
-    let purchaseHandler = IAPManager(productIDs: [])
+    
     var appSecret: String = APP_SECRET
-    var validationAttempted: Bool = false
+    let productManager = ProductManager(appSecret: APP_SECRET, productIDs: ["CP1", "NonCons", "AutoRenewSubsc"])
+    
 
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        purchaseHandler.fetchAvailableProducts()
-   
+       
+        productManager.start()
+        productManager.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
         
+    }
+    
+    func couldNotObtainReceipt(error: Error) {
+        print("Oh no error!")
+    }
+    
+    func allProductsProduced(_ products: [IAProduct]) {
+        print("\n***** RESULTS *****\n")
+        products.forEach{print($0.productID)}
+        print("\n")
     }
     
 }

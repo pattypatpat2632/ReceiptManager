@@ -45,7 +45,7 @@ class IANotPurchased: IAProduct {
     }
 }
 
-class IANonConsumable: IAProduct {
+class IANonSubscription: IAProduct {
     var purchased: Bool
     let quantity: Int
     var localizedDesciption: String {
@@ -141,7 +141,7 @@ class IASubscription: IAProduct {
 
 protocol IAProduct {
     var purchased: Bool {get}
-    
+    var productID: String {get}
 }
 
 enum ExpirationIntent: String {
