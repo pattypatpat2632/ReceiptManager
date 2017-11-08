@@ -9,7 +9,7 @@
 import Foundation
 import StoreKit
 
-public class IAPAutoSubscription: IAProtocol {
+public class IAPAutoSubscription: IAProduct {
     var purchased: Bool
     var skProduct: SKProduct
     var purchaseDate: Date?
@@ -25,7 +25,7 @@ public class IAPAutoSubscription: IAProtocol {
         }
     }
     
-    init(with skProduct: SKProduct, receipt: Receipt?, pendingRenewal: PendingRenewal?) {
+    override init(with skProduct: SKProduct, receipt: Receipt?, pendingRenewal: PendingRenewal?) {
         self.skProduct = skProduct
         
         if let receipt = receipt {

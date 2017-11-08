@@ -9,6 +9,21 @@
 import Foundation
 import StoreKit
 
+// A wrapper class for the IAProtocol, in order to protect IAProtocol as internal
+public class IAProduct: IAProtocol {
+    var purchased: Bool
+    
+    var skProduct: SKProduct
+    
+    var type: IAPType
+    
+    init(purchased: Bool, skProduct: SKProduct, type: IAPType) {
+        self.purchased = purchased
+        self.skProduct = skProduct
+        self.type = type
+    }
+}
+
 // Protocol for all in-app purchases
 internal protocol IAProtocol {
     var purchased: Bool {get}
