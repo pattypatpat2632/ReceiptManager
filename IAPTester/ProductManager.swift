@@ -12,17 +12,22 @@ import StoreKit
 //class for managing all IAProducts
 public class ProductManager {
     
-    private var iapManager: IAPManager?
-    private var receiptManager: ReceiptManager?
-    var products = [IAProduct]()
+
+    var iapManager: IAPManager
+    var receiptManager: ReceiptManager
+    var products = [IAProtocol]()
     weak var delegate: ProductManagerDelegate?
+    let iapStoreInfo: [IAPStoreInfo]
     
     private var receiptsContainer: ReceiptsContainer?
     private var skProducts: [SKProduct]?
     
     private var productFactory: ProductFactory?
     
-    func start(appSecret: String, productIDs: Set<String>) {
+
+    init(appSecret: String, productsInfo: [IAPStoreInfo]) {
+        self.iapStoreInfo = productsInfo
+        let productIDs = Set(productsInfo.map{$0.productID})
         self.iapManager = IAPManager(productIDs: productIDs)
         self.receiptManager = ReceiptManager(appSecret: appSecret)
         receiptManager?.delegate = self
@@ -33,8 +38,8 @@ public class ProductManager {
     
     private func attemptBuildProducts() {
         guard let receiptsContainer = self.receiptsContainer, let skProducts = self.skProducts else {return}
-        let productFactory = ProductFactory(receiptsContainer: receiptsContainer, skProducts: skProducts)
-        self.products = productFactory.producedProducts()
+        let productFactory = ProductFactory()
+        self.products = productFactory.producedProducts(from: receiptsContainer, skProducts: skProducts, iapInfo: self.iapStoreInfo)
         delegate?.allProductsProduced(products)
     }
 }
@@ -60,5 +65,5 @@ extension ProductManager: IAPManagerDelegate {
 
 protocol ProductManagerDelegate: class {
     func couldNotObtainReceipt(error: Error)
-    func allProductsProduced(_ products: [IAProduct])
+    func allProductsProduced(_ products: [IAProtocol])
 }

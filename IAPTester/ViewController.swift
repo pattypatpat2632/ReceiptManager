@@ -10,8 +10,14 @@ import UIKit
 
 class ViewController: UIViewController, ProductManagerDelegate {
     
+
+    @IBOutlet var label: UILabel!
+    
+
     var appSecret: String = APP_SECRET
-    var validationAttempted: Bool = false
+    
+    var productManager = ProductManager(appSecret: APP_SECRET, productsInfo: [])
+    
 
     
     required init?(coder aDecoder: NSCoder) {
@@ -21,10 +27,14 @@ class ViewController: UIViewController, ProductManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let productManager = ProductManager()
-        productManager.start(appSecret: appSecret, productIDs: ["CP1", "NonCons", "AutoRenewSubsc"])
+
+        let product1 = IAPStoreInfo(type: .consumable, productID: "CP1")
+        let product2 = IAPStoreInfo(type: .nonConsumable, productID: "NonCons")
+        let product3 = IAPStoreInfo(type: .autoSubscription, productID: "AutoRenewSubsc")
+        productManager = ProductManager(appSecret: APP_SECRET, productsInfo: [product1, product2, product3])
+        productManager.start()
         productManager.delegate = self
-       
+
     }
     
     func couldNotObtainReceipt(error: Error) {
@@ -33,6 +43,16 @@ class ViewController: UIViewController, ProductManagerDelegate {
     
     func allProductsProduced(_ products: [IAProduct]) {
         products.forEach{print($0.productID)}
+    }
+    
+    func couldNotObtainReceipt(error: Error) {
+        print("Oh no error!")
+    }
+    
+    func allProductsProduced(_ products: [IAProtocol]) {
+        print("\n***** RESULTS *****\n")
+        products.forEach{print("\($0.productID) \($0.type) \($0.purchased)")}
+        print("\n")
     }
     
 }
