@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import StoreKit
 
 public class IAPAutoSubscription: IAProtocol {
     var purchased: Bool

@@ -76,20 +76,15 @@ extension IAPManager: SKPaymentTransactionObserver {
             
             switch transaction.transactionState {
             case .purchased:
-                print("Product purchased:\(currentProduct.productIdentifier)")
                 SKPaymentQueue.default().finishTransaction(transaction)
             case .failed:
-                print("purchase failed: \(currentProduct.productIdentifier)")
                  SKPaymentQueue.default().finishTransaction(transaction)
             case .purchasing:
                 print("purchasing product")
             case .restored:
-                print("restored product")
-                print("Product restored:\(currentProduct.productIdentifier)")
                  SKPaymentQueue.default().finishTransaction(transaction)
             case .deferred:
                 print("Deferred payment")
-
             }
         }
     }

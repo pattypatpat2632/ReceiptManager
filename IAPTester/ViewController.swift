@@ -41,14 +41,6 @@ class ViewController: UIViewController, ProductManagerDelegate {
        print("OH NO COULDN'T GET THE RECEIPT")
     }
     
-    func allProductsProduced(_ products: [IAProduct]) {
-        products.forEach{print($0.productID)}
-    }
-    
-    func couldNotObtainReceipt(error: Error) {
-        print("Oh no error!")
-    }
-    
     func allProductsProduced(_ products: [IAProtocol]) {
         print("\n***** RESULTS *****\n")
         products.forEach{print("\($0.productID) \($0.type) \($0.purchased)")}

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import StoreKit
+
 // Model representing a non-consumable In-App Purchase
 public class IAPNonConsumable: IAProtocol {
     

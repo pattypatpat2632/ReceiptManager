@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import StoreKit
 
 // Protocol for all in-app purchases
-public protocol IAProtocol {
+internal protocol IAProtocol {
     var purchased: Bool {get}
     var productID: String {get}
     var skProduct: SKProduct {get}

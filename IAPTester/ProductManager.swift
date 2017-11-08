@@ -11,8 +11,6 @@ import StoreKit
 
 //class for managing all IAProducts
 public class ProductManager {
-    
-
     var iapManager: IAPManager
     var receiptManager: ReceiptManager
     var products = [IAProtocol]()
@@ -30,10 +28,13 @@ public class ProductManager {
         let productIDs = Set(productsInfo.map{$0.productID})
         self.iapManager = IAPManager(productIDs: productIDs)
         self.receiptManager = ReceiptManager(appSecret: appSecret)
-        receiptManager?.delegate = self
-        iapManager?.delegate = self
-        self.receiptManager?.startValidatingReceipts()
-        self.iapManager?.fetchAvailableProducts()
+    }
+    
+    func start() {
+        receiptManager.delegate = self
+        iapManager.delegate = self
+        self.receiptManager.startValidatingReceipts()
+        self.iapManager.fetchAvailableProducts()
     }
     
     private func attemptBuildProducts() {
