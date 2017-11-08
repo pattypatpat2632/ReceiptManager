@@ -10,17 +10,14 @@ import Foundation
 import StoreKit
 
 // Model representing a non-consumable In-App Purchase
-public class IAPNonConsumable: IAProtocol {
+public class IAPNonConsumable: IAProduct {
     
-    var purchased: Bool
     let quantity: Int
-    var type: IAPType = .nonConsumable
-    var skProduct: SKProduct
-    
+
     init(skProduct: SKProduct, receipts: [Receipt]?) {
-        self.skProduct = skProduct
+        var purchased: Bool
         if let receipts = receipts{
-            self.purchased = true
+            purchased = true
             var quantity: Int = 0
             for quantityValue in receipts.map({$0.quantity}) {
                 if let quantityValue = Int(quantityValue) {
@@ -29,8 +26,9 @@ public class IAPNonConsumable: IAProtocol {
             }
             self.quantity = quantity
         } else {
-            self.purchased = false
+            purchased = false
             self.quantity = 0
         }
+        super.init(purchased: purchased, skProduct: skProduct, type: .nonConsumable)
     }
 }

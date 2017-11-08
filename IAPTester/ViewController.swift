@@ -41,7 +41,7 @@ class ViewController: UIViewController, ProductManagerDelegate {
        print("OH NO COULDN'T GET THE RECEIPT")
     }
     
-    func allProductsProduced(_ products: [IAProtocol]) {
+    func allProductsProduced(_ products: [IAProduct]) {
         print("\n***** RESULTS *****\n")
         products.forEach{print("\($0.productID) \($0.type) \($0.purchased)")}
         print("\n")

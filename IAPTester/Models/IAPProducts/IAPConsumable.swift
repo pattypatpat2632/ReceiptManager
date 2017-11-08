@@ -9,15 +9,12 @@
 import Foundation
 import StoreKit
 
-public class IAPConsumable: IAProtocol {
-    var purchased = false
+public class IAPConsumable: IAProduct {
+
     let quantity: Int = 0
-    var type: IAPType = .consumable
-    
-    var skProduct: SKProduct
     
     init(skProduct: SKProduct) {
-        self.skProduct = skProduct
+        super.init(purchased: false, skProduct: skProduct, type: .consumable)
     }
 }
 

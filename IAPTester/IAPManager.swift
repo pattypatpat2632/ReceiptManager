@@ -13,7 +13,7 @@ import StoreKit
 public class IAPManager {
     var skManager: StoreKitManager
     var receiptManager: ReceiptManager
-    var products = [IAProtocol]()
+    var products = [IAProduct]()
     weak var delegate: ProductManagerDelegate?
     let iapStoreInfo: [IAPStoreInfo]
     
@@ -37,7 +37,7 @@ public class IAPManager {
         self.skManager.fetchAvailableProducts()
     }
     
-    func purchase(product: IAProtocol) {
+    func purchase(product: IAProduct) {
         skManager.purchaseProduct(skProduct: product.skProduct)
     }
     
@@ -88,5 +88,5 @@ extension IAPManager: StoreKitManagerDelegate {
 
 protocol ProductManagerDelegate: class {
     func couldNotObtainReceipt(error: Error)
-    func allProductsProduced(_ products: [IAProtocol])
+    func allProductsProduced(_ products: [IAProduct])
 }

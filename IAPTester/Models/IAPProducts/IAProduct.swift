@@ -9,38 +9,12 @@
 import Foundation
 import StoreKit
 
-// A wrapper class for the IAProtocol, in order to protect IAProtocol as internal
-public class IAProduct: IAProtocol {
+// A super class for all of the iaproduct types
+public class IAProduct {
     var purchased: Bool
     
     var skProduct: SKProduct
     
-    var type: IAPType
-    
-    init(purchased: Bool, skProduct: SKProduct, type: IAPType) {
-        self.purchased = purchased
-        self.skProduct = skProduct
-        self.type = type
-    }
-}
-
-// Protocol for all in-app purchases
-internal protocol IAProtocol {
-    var purchased: Bool {get}
-    var productID: String {get}
-    var skProduct: SKProduct {get}
-    var localizedDesciption: String {get}
-    var localizedTitle: String {get}
-    var price: Double {get}
-    var priceLocale: Locale {get}
-    var isDownloadable: Bool {get}
-    var downloadContentLengths: [NSNumber] {get}
-    var downloadContentVersion: String {get}
-    
-    var type: IAPType {get}
-}
-
-extension IAProtocol {
     var localizedDesciption: String {
         return skProduct.localizedDescription
     }
@@ -64,6 +38,14 @@ extension IAProtocol {
     }
     var downloadContentVersion: String {
         return skProduct.downloadContentVersion
+    }
+    
+    var type: IAPType
+    
+    init(purchased: Bool, skProduct: SKProduct, type: IAPType) {
+        self.purchased = purchased
+        self.skProduct = skProduct
+        self.type = type
     }
 }
 
