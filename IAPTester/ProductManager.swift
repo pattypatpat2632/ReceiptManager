@@ -22,7 +22,8 @@ class ProductManager {
     
     var productFactory: ProductFactory?
     
-    init(appSecret: String, productIDs: Set<String>) {
+    init(appSecret: String, productsInfo: [IAPInfo]) {
+        let productIDs = Set(productsInfo.map{$0.productID})
         self.iapManager = IAPManager(productIDs: productIDs)
         self.receiptManager = ReceiptManager(appSecret: appSecret)
     }
