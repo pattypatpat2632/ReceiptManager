@@ -73,7 +73,7 @@ class IANonConsumable: IAProduct {
         return skProduct.downloadContentVersion
     }
     
-    let skProduct: SKProduct
+    var skProduct: SKProduct
     
     init(skProduct: SKProduct, receipts: [Receipt]) {
         self.skProduct = skProduct
@@ -124,7 +124,7 @@ class IASubscription: IAProduct {
         return skProduct.downloadContentVersion
     }
     
-    let skProduct: SKProduct
+    var skProduct: SKProduct
     
     init?(with skProduct: SKProduct, receipt: Receipt, pendingRenewal: PendingRenewal) {
         guard let expiresDateStr = receipt.expires_date_ms else {return nil}
@@ -141,7 +141,8 @@ class IASubscription: IAProduct {
 
 protocol IAProduct {
     var purchased: Bool {get}
-    
+    var skProduct : SKProduct {get}
+    var productID: String {get}
 }
 
 enum ExpirationIntent: String {

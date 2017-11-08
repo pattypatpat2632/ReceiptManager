@@ -12,8 +12,8 @@ import StoreKit
 //class for managing all IAProducts
 public class ProductManager {
     
-    private var iapManager: IAPManager
-    private var receiptManager: ReceiptManager
+    private var iapManager: IAPManager?
+    private var receiptManager: ReceiptManager?
     var products = [IAProduct]()
     weak var delegate: ProductManagerDelegate?
     
@@ -22,17 +22,13 @@ public class ProductManager {
     
     private var productFactory: ProductFactory?
     
-    init(appSecret: String, productIDs: Set<String>) {
+    func start(appSecret: String, productIDs: Set<String>) {
         self.iapManager = IAPManager(productIDs: productIDs)
         self.receiptManager = ReceiptManager(appSecret: appSecret)
-    }
-    
-    
-    func start() {
-        receiptManager.delegate = self
-        iapManager.delegate = self
-        self.receiptManager.startValidatingReceipts()
-        self.iapManager.fetchAvailableProducts()
+        receiptManager?.delegate = self
+        iapManager?.delegate = self
+        self.receiptManager?.startValidatingReceipts()
+        self.iapManager?.fetchAvailableProducts()
     }
     
     private func attemptBuildProducts() {
