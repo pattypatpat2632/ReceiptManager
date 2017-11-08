@@ -32,7 +32,7 @@ class ViewController: UIViewController, ProductManagerDelegate {
         let product2 = IAPStoreInfo(type: .nonConsumable, productID: "NonCons")
         let product3 = IAPStoreInfo(type: .autoSubscription, productID: "AutoRenewSubsc")
         productManager = ProductManager(appSecret: APP_SECRET, productsInfo: [product1, product2, product3])
-        productManager.start()
+        productManager.loadIAPs()
         productManager.delegate = self
 
     }

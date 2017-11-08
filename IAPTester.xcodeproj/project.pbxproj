@@ -12,7 +12,7 @@
 		EC2465401F9FBC3C0065BD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC24653E1F9FBC3C0065BD8C /* Main.storyboard */; };
 		EC2465421F9FBC3C0065BD8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC2465411F9FBC3C0065BD8C /* Assets.xcassets */; };
 		EC2465451F9FBC3C0065BD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2465431F9FBC3C0065BD8C /* LaunchScreen.storyboard */; };
-		EC24654D1F9FBE710065BD8C /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24654C1F9FBE710065BD8C /* IAPManager.swift */; };
+		EC24654D1F9FBE710065BD8C /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24654C1F9FBE710065BD8C /* StoreKitManager.swift */; };
 		EC24656B1FA0DC700065BD8C /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656A1FA0DC700065BD8C /* Secret.swift */; };
 		EC24656D1FA0DD650065BD8C /* ReceiptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */; };
 		EC67C1A61FACE92700398E8C /* ReceiptsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1A51FACE92700398E8C /* ReceiptsContainer.swift */; };
@@ -22,7 +22,7 @@
 		EC67C1BA1FACF08400398E8C /* ReceiptsSubContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1B81FACEEDF00398E8C /* ReceiptsSubContainer.swift */; };
 		EC67C1BC1FACF0B300398E8C /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1BB1FACF0B300398E8C /* Receipt.swift */; };
 		EC67C1BD1FACF0C100398E8C /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1BB1FACF0B300398E8C /* Receipt.swift */; };
-		ECA4C2161FB0B86200F300FD /* IAProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2151FB0B86200F300FD /* IAProduct.swift */; };
+		ECA4C2161FB0B86200F300FD /* IAPConsumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2151FB0B86200F300FD /* IAPConsumable.swift */; };
 		ECA4C2181FB0C87E00F300FD /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA4C2171FB0C87E00F300FD /* test.json */; };
 		ECA4C2191FB0CAAB00F300FD /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA4C2171FB0C87E00F300FD /* test.json */; };
 		ECA4C21D1FB1102300F300FD /* PendingRenewal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */; };
@@ -31,22 +31,23 @@
 		ECA4C2221FB22A7400F300FD /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2211FB22A7400F300FD /* ProductFactory.swift */; };
 		ECA4C2231FB2517C00F300FD /* ReceiptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */; };
 		ECA4C2241FB2518300F300FD /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656A1FA0DC700065BD8C /* Secret.swift */; };
-		ECA4C2251FB25E7500F300FD /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24654C1F9FBE710065BD8C /* IAPManager.swift */; };
 		ECA4C2261FB2604000F300FD /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C21F1FB1128C00F300FD /* ProductManager.swift */; };
-		ECA4C2271FB2610D00F300FD /* IAProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2151FB0B86200F300FD /* IAProduct.swift */; };
 		ECA4C2281FB261D000F300FD /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2211FB22A7400F300FD /* ProductFactory.swift */; };
 		ECA4C2321FB2736500F300FD /* SweetPeaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = ECA4C2301FB2736500F300FD /* SweetPeaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECA4C2361FB2736A00F300FD /* IAProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2151FB0B86200F300FD /* IAProduct.swift */; };
 		ECA4C2371FB2736E00F300FD /* ReceiptsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1A51FACE92700398E8C /* ReceiptsContainer.swift */; };
 		ECA4C2381FB2737400F300FD /* ReceiptsSubContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1B81FACEEDF00398E8C /* ReceiptsSubContainer.swift */; };
 		ECA4C2391FB2737400F300FD /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1BB1FACF0B300398E8C /* Receipt.swift */; };
 		ECA4C23A1FB2737400F300FD /* PendingRenewal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */; };
-		ECA4C23B1FB2737E00F300FD /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24654C1F9FBE710065BD8C /* IAPManager.swift */; };
 		ECA4C23C1FB2737E00F300FD /* ReceiptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */; };
 		ECA4C23D1FB2737E00F300FD /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656A1FA0DC700065BD8C /* Secret.swift */; };
 		ECA4C23E1FB2737E00F300FD /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C21F1FB1128C00F300FD /* ProductManager.swift */; };
 		ECA4C23F1FB2737E00F300FD /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2211FB22A7400F300FD /* ProductFactory.swift */; };
-		ECA4C2421FB2755E00F300FD /* SPNotPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2411FB2755E00F300FD /* SPNotPurchased.swift */; };
+		ECA4C2471FB39A8500F300FD /* IAProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2461FB39A8500F300FD /* IAProtocol.swift */; };
+		ECA4C24A1FB39AC900F300FD /* IAPSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2491FB39AC900F300FD /* IAPSubscription.swift */; };
+		ECA4C24C1FB39AE000F300FD /* IAPAutoSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C24B1FB39AE000F300FD /* IAPAutoSubscription.swift */; };
+		ECA4C24E1FB39B0100F300FD /* IAPNonConsumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C24D1FB39B0100F300FD /* IAPNonConsumable.swift */; };
+		ECA4C24F1FB39F8D00F300FD /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24654C1F9FBE710065BD8C /* StoreKitManager.swift */; };
+		ECA4C2501FB39F8D00F300FD /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24654C1F9FBE710065BD8C /* StoreKitManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,24 +68,27 @@
 		EC2465411F9FBC3C0065BD8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC2465441F9FBC3C0065BD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC2465461F9FBC3C0065BD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC24654C1F9FBE710065BD8C /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		EC24654C1F9FBE710065BD8C /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
 		EC24656A1FA0DC700065BD8C /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptManager.swift; sourceTree = "<group>"; };
-		EC67C1A51FACE92700398E8C /* ReceiptsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsContainer.swift; sourceTree = "<group>"; };
+		EC67C1A51FACE92700398E8C /* ReceiptsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReceiptsContainer.swift; path = "/Users/sweetpea/Dev/swift-practice/IAPTester/IAPTester/Models/Receipt/ReceiptsContainer.swift"; sourceTree = "<absolute>"; };
 		EC67C1AB1FACE9E800398E8C /* IAPTesterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IAPTesterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC67C1AD1FACE9E800398E8C /* IAPTesterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPTesterTests.swift; sourceTree = "<group>"; };
 		EC67C1AF1FACE9E800398E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC67C1B81FACEEDF00398E8C /* ReceiptsSubContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsSubContainer.swift; sourceTree = "<group>"; };
-		EC67C1BB1FACF0B300398E8C /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
-		ECA4C2151FB0B86200F300FD /* IAProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAProduct.swift; sourceTree = "<group>"; };
+		EC67C1B81FACEEDF00398E8C /* ReceiptsSubContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReceiptsSubContainer.swift; path = "/Users/sweetpea/Dev/swift-practice/IAPTester/IAPTester/Models/Receipt/ReceiptsSubContainer.swift"; sourceTree = "<absolute>"; };
+		EC67C1BB1FACF0B300398E8C /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Receipt.swift; path = "/Users/sweetpea/Dev/swift-practice/IAPTester/IAPTester/Models/Receipt/Receipt.swift"; sourceTree = "<absolute>"; };
+		ECA4C2151FB0B86200F300FD /* IAPConsumable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IAPConsumable.swift; path = "/Users/sweetpea/Dev/swift-practice/IAPTester/IAPTester/Models/IAPProducts/IAPConsumable.swift"; sourceTree = "<absolute>"; };
 		ECA4C2171FB0C87E00F300FD /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
-		ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRenewal.swift; sourceTree = "<group>"; };
+		ECA4C21C1FB1102300F300FD /* PendingRenewal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PendingRenewal.swift; path = "/Users/sweetpea/Dev/swift-practice/IAPTester/IAPTester/Models/Receipt/PendingRenewal.swift"; sourceTree = "<absolute>"; };
 		ECA4C21F1FB1128C00F300FD /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
 		ECA4C2211FB22A7400F300FD /* ProductFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFactory.swift; sourceTree = "<group>"; };
 		ECA4C22E1FB2736500F300FD /* SweetPeaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SweetPeaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA4C2301FB2736500F300FD /* SweetPeaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SweetPeaKit.h; sourceTree = "<group>"; };
 		ECA4C2311FB2736500F300FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECA4C2411FB2755E00F300FD /* SPNotPurchased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNotPurchased.swift; sourceTree = "<group>"; };
+		ECA4C2461FB39A8500F300FD /* IAProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAProtocol.swift; sourceTree = "<group>"; };
+		ECA4C2491FB39AC900F300FD /* IAPSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPSubscription.swift; sourceTree = "<group>"; };
+		ECA4C24B1FB39AE000F300FD /* IAPAutoSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPAutoSubscription.swift; sourceTree = "<group>"; };
+		ECA4C24D1FB39B0100F300FD /* IAPNonConsumable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPNonConsumable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,11 +146,11 @@
 				EC2465411F9FBC3C0065BD8C /* Assets.xcassets */,
 				EC2465431F9FBC3C0065BD8C /* LaunchScreen.storyboard */,
 				EC2465461F9FBC3C0065BD8C /* Info.plist */,
-				EC24654C1F9FBE710065BD8C /* IAPManager.swift */,
+				EC24654C1F9FBE710065BD8C /* StoreKitManager.swift */,
 				EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */,
-				EC24656A1FA0DC700065BD8C /* Secret.swift */,
 				ECA4C21F1FB1128C00F300FD /* ProductManager.swift */,
 				ECA4C2211FB22A7400F300FD /* ProductFactory.swift */,
+				EC24656A1FA0DC700065BD8C /* Secret.swift */,
 			);
 			path = IAPTester;
 			sourceTree = "<group>";
@@ -154,8 +158,7 @@
 		EC67C1A41FACE8FA00398E8C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				ECA4C2411FB2755E00F300FD /* SPNotPurchased.swift */,
-				ECA4C2151FB0B86200F300FD /* IAProduct.swift */,
+				ECA4C2451FB39A6000F300FD /* IAPProducts */,
 				ECA4C2131FB0B6D900F300FD /* Receipt */,
 			);
 			path = Models;
@@ -189,6 +192,18 @@
 				ECA4C2311FB2736500F300FD /* Info.plist */,
 			);
 			path = SweetPeaKit;
+			sourceTree = "<group>";
+		};
+		ECA4C2451FB39A6000F300FD /* IAPProducts */ = {
+			isa = PBXGroup;
+			children = (
+				ECA4C2151FB0B86200F300FD /* IAPConsumable.swift */,
+				ECA4C24D1FB39B0100F300FD /* IAPNonConsumable.swift */,
+				ECA4C2461FB39A8500F300FD /* IAProtocol.swift */,
+				ECA4C2491FB39AC900F300FD /* IAPSubscription.swift */,
+				ECA4C24B1FB39AE000F300FD /* IAPAutoSubscription.swift */,
+			);
+			path = IAPProducts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,19 +352,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC24654D1F9FBE710065BD8C /* IAPManager.swift in Sources */,
+				EC24654D1F9FBE710065BD8C /* StoreKitManager.swift in Sources */,
 				ECA4C2201FB1128C00F300FD /* ProductManager.swift in Sources */,
 				EC67C1B91FACEEDF00398E8C /* ReceiptsSubContainer.swift in Sources */,
-				ECA4C2161FB0B86200F300FD /* IAProduct.swift in Sources */,
+				ECA4C2161FB0B86200F300FD /* IAPConsumable.swift in Sources */,
 				ECA4C2221FB22A7400F300FD /* ProductFactory.swift in Sources */,
+				ECA4C2471FB39A8500F300FD /* IAProtocol.swift in Sources */,
 				EC24656B1FA0DC700065BD8C /* Secret.swift in Sources */,
-				ECA4C2421FB2755E00F300FD /* SPNotPurchased.swift in Sources */,
 				ECA4C21D1FB1102300F300FD /* PendingRenewal.swift in Sources */,
 				EC67C1A61FACE92700398E8C /* ReceiptsContainer.swift in Sources */,
+				ECA4C24A1FB39AC900F300FD /* IAPSubscription.swift in Sources */,
+				ECA4C24C1FB39AE000F300FD /* IAPAutoSubscription.swift in Sources */,
 				EC67C1BC1FACF0B300398E8C /* Receipt.swift in Sources */,
 				EC24653D1F9FBC3C0065BD8C /* ViewController.swift in Sources */,
 				EC24656D1FA0DD650065BD8C /* ReceiptManager.swift in Sources */,
 				EC24653B1F9FBC3C0065BD8C /* AppDelegate.swift in Sources */,
+				ECA4C24E1FB39B0100F300FD /* IAPNonConsumable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,17 +375,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECA4C2251FB25E7500F300FD /* IAPManager.swift in Sources */,
 				EC67C1BD1FACF0C100398E8C /* Receipt.swift in Sources */,
 				ECA4C2241FB2518300F300FD /* Secret.swift in Sources */,
 				EC67C1BA1FACF08400398E8C /* ReceiptsSubContainer.swift in Sources */,
 				ECA4C2261FB2604000F300FD /* ProductManager.swift in Sources */,
 				ECA4C2281FB261D000F300FD /* ProductFactory.swift in Sources */,
 				EC67C1B71FACEDAA00398E8C /* ReceiptsContainer.swift in Sources */,
+				ECA4C24F1FB39F8D00F300FD /* StoreKitManager.swift in Sources */,
 				EC67C1B61FACECF700398E8C /* IAPTesterTests.swift in Sources */,
 				ECA4C2231FB2517C00F300FD /* ReceiptManager.swift in Sources */,
 				ECA4C21E1FB1115D00F300FD /* PendingRenewal.swift in Sources */,
-				ECA4C2271FB2610D00F300FD /* IAProduct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECA4C23B1FB2737E00F300FD /* IAPManager.swift in Sources */,
+				ECA4C2501FB39F8D00F300FD /* StoreKitManager.swift in Sources */,
 				ECA4C23C1FB2737E00F300FD /* ReceiptManager.swift in Sources */,
 				ECA4C23F1FB2737E00F300FD /* ProductFactory.swift in Sources */,
 				ECA4C2391FB2737400F300FD /* Receipt.swift in Sources */,
@@ -383,7 +400,6 @@
 				ECA4C23E1FB2737E00F300FD /* ProductManager.swift in Sources */,
 				ECA4C2371FB2736E00F300FD /* ReceiptsContainer.swift in Sources */,
 				ECA4C23D1FB2737E00F300FD /* Secret.swift in Sources */,
-				ECA4C2361FB2736A00F300FD /* IAProduct.swift in Sources */,
 				ECA4C23A1FB2737400F300FD /* PendingRenewal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

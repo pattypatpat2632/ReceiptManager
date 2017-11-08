@@ -96,7 +96,7 @@ class IAPTesterTests: XCTestCase {
             
             var productExpectation: XCTestExpectation?
             
-            func allProductsProduced(_ products: [IAProduct]) {
+            func allProductsProduced(_ products: [IAProtocol]) {
                 XCTAssert(products.count > 0, "Product manager did not create valid instances of IAProduct")
                 productExpectation!.fulfill()
             }
@@ -105,7 +105,11 @@ class IAPTesterTests: XCTestCase {
                 XCTFail("Could not obtain IAP receipt - make sure you are testing on a phone and not on simulator")
             }
         }
-        let productManager = ProductManager(appSecret: APP_SECRET, productIDs: ["CP1", "NonCons", "AutoRenewSubsc"])
+        
+        let product1 = IAPStoreInfo(type: .consumable, productID: "CP1")
+        let product2 = IAPStoreInfo(type: .nonConsumable, productID: "NonCons")
+        let product3 = IAPStoreInfo(type: .autoSubscription, productID: "AutoRenewSubsc")
+        let productManager = ProductManager(appSecret: APP_SECRET, productsInfo: [product1, product2, product3])
         let spyDelegate = SpyDelegate()
         productManager.delegate = spyDelegate
 

@@ -11,18 +11,17 @@ import StoreKit
 
 // This class handles all of the calls to StoreKit
 
-internal class IAPManager: NSObject {
+internal class StoreKitManager: NSObject {
     
-    let productIDs: Set<String>
+    private let productIDs: Set<String>
     
-    weak var delegate: IAPManagerDelegate?
+    weak var delegate: StoreKitManagerDelegate?
     
-    private var currentProduct = SKProduct()
     private var productsRequest = SKProductsRequest()
-    private var iapProducts = [SKProduct]()
+    private var skProducts = [SKProduct]()
     
     var allProducts: [SKProduct] {
-        return iapProducts
+        return skProducts
     }
     
     init(productIDs: Set<String>) {
@@ -33,50 +32,49 @@ internal class IAPManager: NSObject {
     private func canMakePurchases() -> Bool { return SKPaymentQueue.canMakePayments() }
     
     func fetchAvailableProducts(){
-        if canMakePurchases() {print("Purchases allowed")}
-
-        let productIdentifiers: Set<String> = productIDs
-
-        
-        productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
+        productsRequest = SKProductsRequest(productIdentifiers: productIDs)
         productsRequest.delegate = self
         productsRequest.start()
     }
     
-    func purchaseProduct() {
-        guard canMakePurchases() else {return}
-        guard iapProducts.count > 0 else {
-            return}
+    func purchaseProduct(skProduct: SKProduct) {
+        guard canMakePurchases() else {
+            delegate?.failedAttempt(error: .failedPurchase("User unable to make purchases"))
+            return
+        }
+        guard skProducts.count > 0 else {return}
         
-        let product = iapProducts[0]
+        guard let index = skProducts.index(of: skProduct) else {
+            delegate?.failedAttempt(error: .failedPurchase("Product does not exist in iTunes Connect"))
+            return
+        }
+        let product = skProducts[index]
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().add(payment)
-        currentProduct = product
     }
     
 
     func restoreProducts() {
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().restoreCompletedTransactions()
-
     }
 }
 
-extension IAPManager: SKProductsRequestDelegate {
+extension StoreKitManager: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        iapProducts = response.products
+        skProducts = response.products
         delegate?.received(products: response.products)
     }
 }
 
-extension IAPManager: SKPaymentTransactionObserver {
+extension StoreKitManager: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
-            
             switch transaction.transactionState {
             case .purchased:
                 SKPaymentQueue.default().finishTransaction(transaction)
+                delegate?.productPurchased()
             case .failed:
                  SKPaymentQueue.default().finishTransaction(transaction)
             case .purchasing:
@@ -89,23 +87,27 @@ extension IAPManager: SKPaymentTransactionObserver {
         }
     }
     
-    func handlePurchasedState(for transaction: SKPaymentTransaction, inQueue queue: SKPaymentQueue) {
-        queue.finishTransaction(transaction)
-    }
-    
     func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
         return true
     }
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        
+        delegate?.restoreCompleted()
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
-        
+        delegate?.failedAttempt(error: .failedRestore(error.localizedDescription))
     }
 }
 
-protocol IAPManagerDelegate: class {
+protocol StoreKitManagerDelegate: class {
     func received(products: [SKProduct])
+    func productPurchased()
+    func restoreCompleted()
+    func failedAttempt(error: StoreKitManagerError)
+}
+
+enum StoreKitManagerError: Error {
+    case failedPurchase(String)
+    case failedRestore(String)
 }

@@ -11,6 +11,6 @@ import Foundation
 internal struct ReceiptsContainer: Codable {
     let environment: String
     let status: Double
-    let receipt: ReceiptsSubContainer
-    let pending_renewal_info: [PendingRenewal]
+    let receipt: ReceiptsSubContainer?
+    let pending_renewal_info: [PendingRenewal]?
 }

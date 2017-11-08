@@ -15,5 +15,5 @@ internal struct ReceiptsSubContainer: Codable {
     let receipt_type: String
     let request_date_ms: String
     let version_external_identifier: Double
-    let in_app: [Receipt]
+    let in_app: [Receipt]?
 }

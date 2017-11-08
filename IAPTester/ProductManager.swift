@@ -11,7 +11,7 @@ import StoreKit
 
 //class for managing all IAProducts
 public class ProductManager {
-    var iapManager: IAPManager
+    var skManager: StoreKitManager
     var receiptManager: ReceiptManager
     var products = [IAProtocol]()
     weak var delegate: ProductManagerDelegate?
@@ -26,15 +26,19 @@ public class ProductManager {
     init(appSecret: String, productsInfo: [IAPStoreInfo]) {
         self.iapStoreInfo = productsInfo
         let productIDs = Set(productsInfo.map{$0.productID})
-        self.iapManager = IAPManager(productIDs: productIDs)
+        self.skManager = StoreKitManager(productIDs: productIDs)
         self.receiptManager = ReceiptManager(appSecret: appSecret)
     }
     
-    func start() {
+    func loadIAPs() {
         receiptManager.delegate = self
-        iapManager.delegate = self
+        skManager.delegate = self
         self.receiptManager.startValidatingReceipts()
-        self.iapManager.fetchAvailableProducts()
+        self.skManager.fetchAvailableProducts()
+    }
+    
+    func purchase(product: IAProtocol) {
+        skManager.purchaseProduct(skProduct: product.skProduct)
     }
     
     private func attemptBuildProducts() {
@@ -57,11 +61,29 @@ extension ProductManager: ReceiptManagerDelegate {
     }
 }
 
-extension ProductManager: IAPManagerDelegate {
+extension ProductManager: StoreKitManagerDelegate {
+    func failedAttempt(error: StoreKitManagerError) {
+        switch error {
+        case .failedPurchase(let failString):
+            print(failString)
+        case .failedRestore(let failString):
+            print(failString)
+        }
+    }
+    
     func received(products: [SKProduct]) {
         self.skProducts = products
         attemptBuildProducts()
     }
+    
+    func restoreCompleted() {
+        
+    }
+    
+    func productPurchased() {
+        self.loadIAPs()
+    }
+    
 }
 
 protocol ProductManagerDelegate: class {

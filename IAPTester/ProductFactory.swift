@@ -38,33 +38,36 @@ internal class ProductFactory {
         return products
     }
     
-    private func iapAutoSubscription(from receipts: [Receipt], pendingRenewals: [PendingRenewal], skProduct: SKProduct) -> IAProtocol {
-        var receipt: Receipt?
+    private func iapAutoSubscription(from receipts: [Receipt]?, pendingRenewals: [PendingRenewal]?, skProduct: SKProduct) -> IAProtocol {
+        var receipt: Receipt? = nil
         var pendingRenewal: PendingRenewal?
         
-        if let index = receipts.index(where: {$0.product_id == skProduct.productIdentifier}) {
-            receipt = receipts[index]
+        if let receipts = receipts {
+            if let index = receipts.index(where: {$0.product_id == skProduct.productIdentifier}) {
+                receipt = receipts[index]
+            }
         }
         
-        if let index = pendingRenewals.index(where: {$0.auto_renew_product_id == skProduct.productIdentifier}) {
+        if let pendingRenewals = pendingRenewals, let index = pendingRenewals.index(where: {$0.auto_renew_product_id == skProduct.productIdentifier}) {
             pendingRenewal = pendingRenewals[index]
         }
         
         return IAPAutoSubscription(with: skProduct, receipt: receipt, pendingRenewal: pendingRenewal)
     }
     
-    private func iapSubscription(from receipts: [Receipt], skProduct: SKProduct) -> IAProtocol {
-        var receipt: Receipt?
-        
-        if let index = receipts.index(where: {$0.product_id == skProduct.productIdentifier}) {
-            receipt = receipts[index]
+    private func iapSubscription(from receipts: [Receipt]?, skProduct: SKProduct) -> IAProtocol {
+        var receipt: Receipt? = nil
+        if let receipts = receipts {
+            if let index = receipts.index(where: {$0.product_id == skProduct.productIdentifier}) {
+                receipt = receipts[index]
+            }
         }
         
         return IAPSubscription(with: skProduct, receipt: receipt)
     }
     
-    private func iapNonConsumable(from receipts: [Receipt], skProduct: SKProduct) -> IAProtocol {
-        
+    private func iapNonConsumable(from receipts: [Receipt]?, skProduct: SKProduct) -> IAProtocol {
+        guard let receipts = receipts else {return IAPNonConsumable(skProduct: skProduct, receipts: nil)}
         let matchingReceipts = receipts.filter{$0.product_id == skProduct.productIdentifier}
         if matchingReceipts.count > 0 {
             return IAPNonConsumable(skProduct: skProduct, receipts: matchingReceipts)
@@ -73,12 +76,13 @@ internal class ProductFactory {
         }
     }
     
-    private func iapConsumable(from receipts: [Receipt], skProduct: SKProduct) -> IAProtocol {
+    private func iapConsumable(from receipts: [Receipt]?, skProduct: SKProduct) -> IAProtocol {
         return IAPConsumable(skProduct: skProduct)
     }
     
-    private func receiptsSortedByExpiration(fromContainer container: ReceiptsContainer) -> [Receipt] {
-        return container.receipt.in_app.sorted{ (receipt1, receipt2) in
+    private func receiptsSortedByExpiration(fromContainer container: ReceiptsContainer) -> [Receipt]? {
+        guard let receipts = container.receipt?.in_app else {return nil}
+        return receipts.sorted{ (receipt1, receipt2) in
             if let date1 = receipt1.expires_date_ms, let date2 = receipt2.expires_date_ms {
                 return date1 >= date2
             } else {
