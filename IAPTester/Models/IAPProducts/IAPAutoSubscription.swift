@@ -10,12 +10,9 @@ import Foundation
 import StoreKit
 
 public class IAPAutoSubscription: IAProduct {
-    var purchased: Bool
-    var skProduct: SKProduct
     var purchaseDate: Date?
     var expirationDate: Date?
     var expirationIntent: ExpirationIntent?
-    var type: IAPType = .autoSubscription
     
     var subscribed: Bool {
         if let expirationDate = expirationDate {
@@ -25,23 +22,23 @@ public class IAPAutoSubscription: IAProduct {
         }
     }
     
-    override init(with skProduct: SKProduct, receipt: Receipt?, pendingRenewal: PendingRenewal?) {
-        self.skProduct = skProduct
-        
+    init(with skProduct: SKProduct, receipt: Receipt?, pendingRenewal: PendingRenewal?) {
+        var purchased: Bool
         if let receipt = receipt {
-            self.purchased = true
+            purchased = true
             
             if let expirationDate = receipt.expirationDate, let purchaseDate = receipt.purchaseDate {
                 self.expirationDate = Date(timeIntervalSince1970: expirationDate / 1000)
                 self.purchaseDate = Date(timeIntervalSince1970: purchaseDate / 1000)
             }
         } else {
-            self.purchased = false
+            purchased = false
         }
         
         if let pR = pendingRenewal {
             self.expirationIntent = ExpirationIntent(rawValue: pR.expiration_intent)
         }
+        super.init(purchased: purchased, skProduct: skProduct, type: .autoSubscription)
     }
     
     enum ExpirationIntent: String {

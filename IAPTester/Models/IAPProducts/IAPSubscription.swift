@@ -9,13 +9,10 @@
 import Foundation
 import StoreKit
 
-public class IAPSubscription: IAProtocol {
+public class IAPSubscription: IAProduct {
     
-    var purchased: Bool
     var purchaseDate: Date?
     var expirationDate: Date?
-    var skProduct: SKProduct
-    var type: IAPType = .subscription
     
     var subscribed: Bool {
         if let expirationDate = expirationDate {
@@ -26,17 +23,18 @@ public class IAPSubscription: IAProtocol {
     }
     
     init(with skProduct: SKProduct, receipt: Receipt?) {
-        self.skProduct = skProduct
+        var purchased: Bool
         
         if let receipt = receipt {
-            self.purchased = true
+            purchased = true
             
             if let expirationDate = receipt.expirationDate, let purchaseDate = receipt.purchaseDate {
                 self.expirationDate = Date(timeIntervalSince1970: expirationDate / 1000)
                 self.purchaseDate = Date(timeIntervalSince1970: purchaseDate / 1000)
             }
         } else {
-            self.purchased = false
+            purchased = false
         }
+        super.init(purchased: purchased, skProduct: skProduct, type: .subscription)
     }
 }

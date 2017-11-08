@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		EC21E69C1FB3AE96007288C5 /* IAPConsumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2151FB0B86200F300FD /* IAPConsumable.swift */; };
 		EC21E69D1FB3AE96007288C5 /* IAPNonConsumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C24D1FB39B0100F300FD /* IAPNonConsumable.swift */; };
-		EC21E69E1FB3AE96007288C5 /* IAProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2461FB39A8500F300FD /* IAProtocol.swift */; };
+		EC21E69E1FB3AE96007288C5 /* IAProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2461FB39A8500F300FD /* IAProduct.swift */; };
 		EC21E69F1FB3AE96007288C5 /* IAPSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2491FB39AC900F300FD /* IAPSubscription.swift */; };
 		EC21E6A01FB3AE96007288C5 /* IAPAutoSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C24B1FB39AE000F300FD /* IAPAutoSubscription.swift */; };
 		EC21E6A61FB3AEA7007288C5 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656A1FA0DC700065BD8C /* Secret.swift */; };
@@ -21,7 +21,7 @@
 		EC21E6BB1FB3B29F007288C5 /* ReceiptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */; };
 		EC21E6BC1FB3B2A5007288C5 /* IAPConsumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2151FB0B86200F300FD /* IAPConsumable.swift */; };
 		EC21E6BD1FB3B2A5007288C5 /* IAPNonConsumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C24D1FB39B0100F300FD /* IAPNonConsumable.swift */; };
-		EC21E6BE1FB3B2A5007288C5 /* IAProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2461FB39A8500F300FD /* IAProtocol.swift */; };
+		EC21E6BE1FB3B2A5007288C5 /* IAProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2461FB39A8500F300FD /* IAProduct.swift */; };
 		EC21E6BF1FB3B2A5007288C5 /* IAPSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2491FB39AC900F300FD /* IAPSubscription.swift */; };
 		EC21E6C01FB3B2A5007288C5 /* IAPAutoSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C24B1FB39AE000F300FD /* IAPAutoSubscription.swift */; };
 		EC21E6C11FB3B2AA007288C5 /* ReceiptsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC67C1A51FACE92700398E8C /* ReceiptsContainer.swift */; };
@@ -54,7 +54,7 @@
 		ECA4C2241FB2518300F300FD /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC24656A1FA0DC700065BD8C /* Secret.swift */; };
 		ECA4C2261FB2604000F300FD /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C21F1FB1128C00F300FD /* IAPManager.swift */; };
 		ECA4C2281FB261D000F300FD /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2211FB22A7400F300FD /* ProductFactory.swift */; };
-		ECA4C2471FB39A8500F300FD /* IAProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2461FB39A8500F300FD /* IAProtocol.swift */; };
+		ECA4C2471FB39A8500F300FD /* IAProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2461FB39A8500F300FD /* IAProduct.swift */; };
 		ECA4C24A1FB39AC900F300FD /* IAPSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C2491FB39AC900F300FD /* IAPSubscription.swift */; };
 		ECA4C24C1FB39AE000F300FD /* IAPAutoSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C24B1FB39AE000F300FD /* IAPAutoSubscription.swift */; };
 		ECA4C24E1FB39B0100F300FD /* IAPNonConsumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4C24D1FB39B0100F300FD /* IAPNonConsumable.swift */; };
@@ -119,7 +119,7 @@
 		ECA4C2211FB22A7400F300FD /* ProductFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFactory.swift; sourceTree = "<group>"; };
 		ECA4C2301FB2736500F300FD /* SweetPeaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SweetPeaKit.h; sourceTree = "<group>"; };
 		ECA4C2311FB2736500F300FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECA4C2461FB39A8500F300FD /* IAProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAProtocol.swift; sourceTree = "<group>"; };
+		ECA4C2461FB39A8500F300FD /* IAProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAProduct.swift; sourceTree = "<group>"; };
 		ECA4C2491FB39AC900F300FD /* IAPSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPSubscription.swift; sourceTree = "<group>"; };
 		ECA4C24B1FB39AE000F300FD /* IAPAutoSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPAutoSubscription.swift; sourceTree = "<group>"; };
 		ECA4C24D1FB39B0100F300FD /* IAPNonConsumable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPNonConsumable.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 			children = (
 				ECA4C2151FB0B86200F300FD /* IAPConsumable.swift */,
 				ECA4C24D1FB39B0100F300FD /* IAPNonConsumable.swift */,
-				ECA4C2461FB39A8500F300FD /* IAProtocol.swift */,
+				ECA4C2461FB39A8500F300FD /* IAProduct.swift */,
 				ECA4C2491FB39AC900F300FD /* IAPSubscription.swift */,
 				ECA4C24B1FB39AE000F300FD /* IAPAutoSubscription.swift */,
 			);
@@ -416,7 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC21E6BA1FB3B29F007288C5 /* StoreKitManager.swift in Sources */,
-				EC21E6BE1FB3B2A5007288C5 /* IAProtocol.swift in Sources */,
+				EC21E6BE1FB3B2A5007288C5 /* IAProduct.swift in Sources */,
 				EC21E6BF1FB3B2A5007288C5 /* IAPSubscription.swift in Sources */,
 				EC21E6C21FB3B2AA007288C5 /* ReceiptsSubContainer.swift in Sources */,
 				EC21E6BD1FB3B2A5007288C5 /* IAPNonConsumable.swift in Sources */,
@@ -440,7 +440,7 @@
 				EC67C1B91FACEEDF00398E8C /* ReceiptsSubContainer.swift in Sources */,
 				ECA4C2161FB0B86200F300FD /* IAPConsumable.swift in Sources */,
 				ECA4C2221FB22A7400F300FD /* ProductFactory.swift in Sources */,
-				ECA4C2471FB39A8500F300FD /* IAProtocol.swift in Sources */,
+				ECA4C2471FB39A8500F300FD /* IAProduct.swift in Sources */,
 				ECA4C21D1FB1102300F300FD /* PendingRenewal.swift in Sources */,
 				EC67C1A61FACE92700398E8C /* ReceiptsContainer.swift in Sources */,
 				ECA4C24A1FB39AC900F300FD /* IAPSubscription.swift in Sources */,
@@ -463,7 +463,7 @@
 				EC67C1BA1FACF08400398E8C /* ReceiptsSubContainer.swift in Sources */,
 				ECA4C2261FB2604000F300FD /* IAPManager.swift in Sources */,
 				EC21E69C1FB3AE96007288C5 /* IAPConsumable.swift in Sources */,
-				EC21E69E1FB3AE96007288C5 /* IAProtocol.swift in Sources */,
+				EC21E69E1FB3AE96007288C5 /* IAProduct.swift in Sources */,
 				ECA4C2281FB261D000F300FD /* ProductFactory.swift in Sources */,
 				EC67C1B71FACEDAA00398E8C /* ReceiptsContainer.swift in Sources */,
 				ECA4C24F1FB39F8D00F300FD /* StoreKitManager.swift in Sources */,
