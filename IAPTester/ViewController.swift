@@ -46,6 +46,6 @@ class ViewController: UIViewController, ProductManagerDelegate {
         products.forEach{print("\($0.productID) \($0.type) \($0.purchased)")}
         print("\n")
     }
-    
+
 }
 
