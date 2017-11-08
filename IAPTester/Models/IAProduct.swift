@@ -9,7 +9,7 @@
 import Foundation
 import StoreKit
 
-class IAConsumable: IAProduct {
+class IAPConsumable: IAProtocol {
     var purchased = false
     let quantity: Int = 0
     var type: IAPType = .consumable
@@ -21,7 +21,7 @@ class IAConsumable: IAProduct {
     }
 }
 
-class IANonConsumable: IAProduct {
+class IAPNonConsumable: IAProtocol {
 
     var purchased: Bool
     var skProduct: SKProduct
@@ -46,7 +46,7 @@ class IANonConsumable: IAProduct {
     }
 }
 
-class IAAutoSubscription: IAProduct {
+class IAPAutoSubscription: IAProtocol {
     var purchased: Bool
     var skProduct: SKProduct
     var purchaseDate: Date?
@@ -93,7 +93,7 @@ class IAAutoSubscription: IAProduct {
     
 }
 
-class IASubscription: IAProduct {
+class IAPSubscription: IAProtocol {
     
     var purchased: Bool
     var purchaseDate: Date?
@@ -125,7 +125,7 @@ class IASubscription: IAProduct {
     }
 }
 
-protocol IAProduct {
+protocol IAProtocol {
     var purchased: Bool {get}
     var productID: String {get}
     var skProduct: SKProduct {get}
@@ -140,7 +140,7 @@ protocol IAProduct {
     var type: IAPType {get}
 }
 
-extension IAProduct {
+extension IAProtocol {
     var localizedDesciption: String {
         return skProduct.localizedDescription
     }
@@ -174,7 +174,7 @@ enum IAPType {
     case consumable
 }
 
-class IAPInfo {
+class IAPStoreInfo {
     let type: IAPType
     let productID: String
     

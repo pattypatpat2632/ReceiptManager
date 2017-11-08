@@ -14,15 +14,17 @@ class ProductManager {
     
     var iapManager: IAPManager
     var receiptManager: ReceiptManager
-    var products = [IAProduct]()
+    var products = [IAProtocol]()
     weak var delegate: ProductManagerDelegate?
+    let iapStoreInfo: [IAPStoreInfo]
     
     var receiptsContainer: ReceiptsContainer?
     var skProducts: [SKProduct]?
     
     var productFactory: ProductFactory?
     
-    init(appSecret: String, productsInfo: [IAPInfo]) {
+    init(appSecret: String, productsInfo: [IAPStoreInfo]) {
+        self.iapStoreInfo = productsInfo
         let productIDs = Set(productsInfo.map{$0.productID})
         self.iapManager = IAPManager(productIDs: productIDs)
         self.receiptManager = ReceiptManager(appSecret: appSecret)
@@ -38,8 +40,8 @@ class ProductManager {
     
     private func attemptBuildProducts() {
         guard let receiptsContainer = self.receiptsContainer, let skProducts = self.skProducts else {return}
-        let productFactory = ProductFactory(receiptsContainer: receiptsContainer, skProducts: skProducts)
-        self.products = productFactory.producedProducts()
+        let productFactory = ProductFactory()
+        self.products = productFactory.producedProducts(from: receiptsContainer, skProducts: skProducts, iapInfo: self.iapStoreInfo)
         delegate?.allProductsProduced(products)
     }
 }
@@ -65,5 +67,5 @@ extension ProductManager: IAPManagerDelegate {
 
 protocol ProductManagerDelegate: class {
     func couldNotObtainReceipt(error: Error)
-    func allProductsProduced(_ products: [IAProduct])
+    func allProductsProduced(_ products: [IAProtocol])
 }
