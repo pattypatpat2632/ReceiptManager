@@ -9,8 +9,8 @@
 import Foundation
 import StoreKit
 
-//class for managing all IAProducts
-public class ProductManager {
+// This is the main interfacing class. Used to validate receipts, extract products from StoreKit, and carry out purchases
+public class IAPManager {
     var skManager: StoreKitManager
     var receiptManager: ReceiptManager
     var products = [IAProtocol]()
@@ -49,7 +49,7 @@ public class ProductManager {
     }
 }
 
-extension ProductManager: ReceiptManagerDelegate {
+extension IAPManager: ReceiptManagerDelegate {
     func response(_ response: ReceiptManagerResponse) {
         switch response {
         case .validReceipt(let receiptsContainer):
@@ -61,7 +61,7 @@ extension ProductManager: ReceiptManagerDelegate {
     }
 }
 
-extension ProductManager: StoreKitManagerDelegate {
+extension IAPManager: StoreKitManagerDelegate {
     func failedAttempt(error: StoreKitManagerError) {
         switch error {
         case .failedPurchase(let failString):

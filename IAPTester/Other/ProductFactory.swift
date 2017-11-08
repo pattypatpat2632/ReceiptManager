@@ -9,6 +9,7 @@
 import Foundation
 import StoreKit
 
+// This is a helper factory class for producing instances of IAProtocol from a receipt container and an SKProduct
 internal class ProductFactory {
     
     func producedProducts(from receiptsContainer: ReceiptsContainer, skProducts: [SKProduct], iapInfo: [IAPStoreInfo]) -> [IAProtocol]{

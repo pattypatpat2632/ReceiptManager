@@ -29,14 +29,16 @@ internal class StoreKitManager: NSObject {
         super.init()
     }
     
-    private func canMakePurchases() -> Bool { return SKPaymentQueue.canMakePayments() }
+    //MARK: interfaced functions
     
+    // Fetches all of the available SKProducts created in iTunes Connect
     func fetchAvailableProducts(){
         productsRequest = SKProductsRequest(productIdentifiers: productIDs)
         productsRequest.delegate = self
         productsRequest.start()
     }
     
+    // Adds a product purchase to the payment queue
     func purchaseProduct(skProduct: SKProduct) {
         guard canMakePurchases() else {
             delegate?.failedAttempt(error: .failedPurchase("User unable to make purchases"))
@@ -54,13 +56,17 @@ internal class StoreKitManager: NSObject {
         SKPaymentQueue.default().add(payment)
     }
     
-
+    // Adds a product resore to the payment queue
     func restoreProducts() {
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
+    
+    private func canMakePurchases() -> Bool { return SKPaymentQueue.canMakePayments() }
 }
 
+
+// MARK: SKProductsRequestDelegate
 extension StoreKitManager: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         skProducts = response.products
@@ -68,6 +74,8 @@ extension StoreKitManager: SKProductsRequestDelegate {
     }
 }
 
+
+// MARK: SKPAymentTransactionObserver
 extension StoreKitManager: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
@@ -100,6 +108,8 @@ extension StoreKitManager: SKPaymentTransactionObserver {
     }
 }
 
+
+// MARK: StoreKitManagerDelegate
 protocol StoreKitManagerDelegate: class {
     func received(products: [SKProduct])
     func productPurchased()
@@ -107,6 +117,8 @@ protocol StoreKitManagerDelegate: class {
     func failedAttempt(error: StoreKitManagerError)
 }
 
+
+// MARK: StoreKitManagerError
 enum StoreKitManagerError: Error {
     case failedPurchase(String)
     case failedRestore(String)

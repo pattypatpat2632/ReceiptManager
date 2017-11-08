@@ -6,8 +6,6 @@
 //  Copyright © 2017 Patrick O'Leary. All rights reserved.
 //
 
-// This is a protocol for handling all of the calls to Apple's receipt validation
-
 import Foundation
 import StoreKit
 
@@ -17,11 +15,22 @@ let IS_DEBUG = true
 let IS_DEBUG = false
 #endif
 
+// This class handles all calls to Apple's receipt verification
 internal class ReceiptManager: NSObject, SKRequestDelegate {
     
-    var appSecret: String
-    var validationAttempted: Bool = false
-    var receiptsContainer: ReceiptsContainer?
+    private var appSecret: String
+    private var validationAttempted: Bool = false
+    private var receiptsContainer: ReceiptsContainer?
+    private var localReceiptUrl: URL? {
+        return Bundle.main.appStoreReceiptURL
+    }
+    private var receiptValidationUrl: URL? {
+        if IS_DEBUG {
+            return URL(string: "https://sandbox.itunes.apple.com/verifyReceipt")
+        } else {
+            return URL(string: "https://buy.itunes.apple.com/verifyReceipt")
+        }
+    }
     
     weak var delegate: ReceiptManagerDelegate?
     
@@ -29,24 +38,9 @@ internal class ReceiptManager: NSObject, SKRequestDelegate {
         self.appSecret = appSecret
         super.init()
     }
-}
-
-extension ReceiptManager {
-    private var receiptValidationUrl: URL? {
-        if IS_DEBUG {
-            return URL(string: "https://sandbox.itunes.apple.com/verifyReceipt")
-        } else { 
-            return URL(string: "https://buy.itunes.apple.com/verifyReceipt")
-        }
-    }
     
-    private var localReceiptUrl: URL? {
-        return Bundle.main.appStoreReceiptURL
-    }
-    
-
+    // Tries to validate the receipt. If the first attempt fails, it will send up a receipt request and try again. If it fails a second time, it sends an error message to the delegate
     func startValidatingReceipts() {
-
         if let isExist = try? localReceiptUrl?.checkResourceIsReachable(), isExist == true {
             do {
                 print("VALID DATA AT URL")
@@ -74,9 +68,11 @@ extension ReceiptManager {
             }
         }
     }
-    
-    
-    
+}
+
+
+// MARK: helper functions
+extension ReceiptManager {
     private func validate(data: Data, completion: @escaping (ReceiptManagerResponse) -> Void) {
 
         guard let receiptValidUrl = receiptValidationUrl else {return} //TODO: error handling
@@ -113,6 +109,8 @@ extension ReceiptManager {
     }
 }
 
+
+// MARK: delegate and helper enums
 enum ReceiptManagerResponse {
     case validReceipt(ReceiptsContainer)
     case error(ReceiptManagerError)

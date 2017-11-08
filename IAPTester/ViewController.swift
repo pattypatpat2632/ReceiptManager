@@ -16,7 +16,7 @@ class ViewController: UIViewController, ProductManagerDelegate {
 
     var appSecret: String = APP_SECRET
     
-    var productManager = ProductManager(appSecret: APP_SECRET, productsInfo: [])
+    var productManager = IAPManager(appSecret: APP_SECRET, productsInfo: [])
     
 
     
@@ -31,7 +31,7 @@ class ViewController: UIViewController, ProductManagerDelegate {
         let product1 = IAPStoreInfo(type: .consumable, productID: "CP1")
         let product2 = IAPStoreInfo(type: .nonConsumable, productID: "NonCons")
         let product3 = IAPStoreInfo(type: .autoSubscription, productID: "AutoRenewSubsc")
-        productManager = ProductManager(appSecret: APP_SECRET, productsInfo: [product1, product2, product3])
+        productManager = IAPManager(appSecret: APP_SECRET, productsInfo: [product1, product2, product3])
         productManager.loadIAPs()
         productManager.delegate = self
 

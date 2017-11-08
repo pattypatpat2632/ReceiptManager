@@ -116,6 +116,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC21E69A1FB3ACDF007288C5 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EC24654C1F9FBE710065BD8C /* StoreKitManager.swift */,
+				EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		EC21E69B1FB3AD0E007288C5 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				ECA4C2211FB22A7400F300FD /* ProductFactory.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		EC24652E1F9FBC3C0065BD8C = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +156,8 @@
 		EC2465391F9FBC3C0065BD8C /* IAPTester */ = {
 			isa = PBXGroup;
 			children = (
+				EC21E69B1FB3AD0E007288C5 /* Other */,
+				EC21E69A1FB3ACDF007288C5 /* Managers */,
 				EC67C1A41FACE8FA00398E8C /* Models */,
 				EC24653A1F9FBC3C0065BD8C /* AppDelegate.swift */,
 				EC24653C1F9FBC3C0065BD8C /* ViewController.swift */,
@@ -146,10 +165,7 @@
 				EC2465411F9FBC3C0065BD8C /* Assets.xcassets */,
 				EC2465431F9FBC3C0065BD8C /* LaunchScreen.storyboard */,
 				EC2465461F9FBC3C0065BD8C /* Info.plist */,
-				EC24654C1F9FBE710065BD8C /* StoreKitManager.swift */,
-				EC24656C1FA0DD650065BD8C /* ReceiptManager.swift */,
 				ECA4C21F1FB1128C00F300FD /* ProductManager.swift */,
-				ECA4C2211FB22A7400F300FD /* ProductFactory.swift */,
 				EC24656A1FA0DC700065BD8C /* Secret.swift */,
 			);
 			path = IAPTester;
